@@ -1,0 +1,2239 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>51视频网站 - 影视聚合与深度解析</title>
+    <meta name="description" content="51视频网站汇聚电影、剧集、纪录片、动漫与综艺等视频内容，提供热门条目推荐、最新更新动态、分类筛选与深度解析，适合影视爱好者与追剧用户浏览。">
+    <meta name="keywords" content="51视频网站">
+    <style>
+        /* ---- 全局变量与重置 ---- */
+        :root {
+            --brand-primary: #1a3b5c;
+            --brand-primary-light: #2e5a7f;
+            --brand-primary-dark: #0f2a40;
+            --brand-accent: #e67e22;
+            --brand-accent-light: #f39c12;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --bg-panel: #f0f2f5;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --border-color: #e2e8f0;
+            --shadow-default: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+            --radius-card: 12px;
+            --radius-btn: 8px;
+            --radius-tag: 6px;
+            --radius-banner: 16px;
+            --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans SC', sans-serif;
+            --header-height: 64px;
+            --announce-height: 40px;
+            --sticky-offset: calc(var(--header-height) + var(--announce-height));
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ---- 通用容器 ---- */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---- 吸顶公告条 ---- */
+        .announce-bar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--brand-primary-dark);
+            color: #fff;
+            height: var(--announce-height);
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        .announce-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .announce-brand {
+            font-weight: 700;
+            color: var(--brand-accent-light);
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .announce-items {
+            display: flex;
+            gap: 24px;
+            animation: scrollAnnounce 30s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .announce-items span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.9;
+        }
+
+        .announce-items .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--brand-accent-light);
+            flex-shrink: 0;
+        }
+
+        @keyframes scrollAnnounce {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .announce-items { animation: none; }
+        }
+
+        /* ---- 吸顶页头 ---- */
+        .site-header {
+            position: sticky;
+            top: var(--announce-height);
+            z-index: 999;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--brand-primary);
+            letter-spacing: -0.3px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .main-nav a {
+            padding: 6px 12px;
+            border-radius: var(--radius-btn);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus-visible {
+            background: var(--brand-primary-light);
+            color: #fff;
+            outline: none;
+        }
+
+        .header-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            padding: 7px 16px;
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 600;
+            border: 1.5px solid var(--brand-primary);
+            color: var(--brand-primary);
+            background: transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
+            background: var(--brand-primary);
+            color: #fff;
+            outline: none;
+        }
+
+        .btn-filled {
+            padding: 7px 16px;
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 600;
+            background: var(--brand-accent);
+            color: #fff;
+            transition: background 0.2s;
+        }
+
+        .btn-filled:hover,
+        .btn-filled:focus-visible {
+            background: #d35400;
+            outline: none;
+        }
+
+        /* 移动端菜单按钮 */
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-btn);
+            color: var(--text-primary);
+            font-size: 22px;
+            background: transparent;
+        }
+
+        .menu-toggle:hover {
+            background: var(--bg-panel);
+        }
+
+        /* ---- 首屏 ---- */
+        .hero-section {
+            padding: 48px 0 40px;
+            background: linear-gradient(135deg, #0f2a40 0%, #1a3b5c 40%, #2e5a7f 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            right: -80px;
+            top: -60px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(230,126,34,0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            left: 10%;
+            bottom: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1 1 55%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--brand-accent-light);
+        }
+
+        .hero-content h1 {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.78);
+            max-width: 560px;
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-actions .btn-hero-primary {
+            padding: 12px 28px;
+            border-radius: var(--radius-btn);
+            background: var(--brand-accent);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .hero-actions .btn-hero-primary:hover {
+            background: #d35400;
+            transform: translateY(-1px);
+        }
+
+        .hero-actions .btn-hero-secondary {
+            padding: 12px 28px;
+            border-radius: var(--radius-btn);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            font-weight: 500;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .hero-actions .btn-hero-secondary:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .hero-visual {
+            flex: 0 0 340px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+        }
+
+        /* ---- 主布局：三栏 ---- */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr) 260px;
+            gap: 24px;
+            padding: 32px 0 56px;
+        }
+
+        /* ---- 左频道索引 ---- */
+        .channel-sidebar {
+            position: sticky;
+            top: calc(var(--sticky-offset) + 16px);
+            align-self: start;
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 16px 0;
+            box-shadow: var(--shadow-default);
+            max-height: calc(100vh - var(--sticky-offset) - 32px);
+            overflow-y: auto;
+        }
+
+        .channel-sidebar h2 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            padding: 0 16px 10px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 6px;
+        }
+
+        .channel-list a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-left: 3px solid transparent;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .channel-list a:hover,
+        .channel-list a:focus-visible,
+        .channel-list a.active {
+            background: var(--bg-panel);
+            border-left-color: var(--brand-accent);
+            color: var(--brand-primary);
+            font-weight: 600;
+            outline: none;
+        }
+
+        /* ---- 中间主内容 ---- */
+        .main-content {
+            min-width: 0;
+        }
+
+        .section-block {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--brand-accent);
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-default);
+            transition: box-shadow 0.25s, transform 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .video-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            background: var(--bg-panel);
+        }
+
+        .card-body {
+            padding: 12px 14px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .tag-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-tag);
+            font-size: 11px;
+            font-weight: 600;
+            background: var(--brand-primary);
+            color: #fff;
+        }
+
+        .tag-soft {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: var(--radius-tag);
+            font-size: 11px;
+            font-weight: 500;
+            background: var(--bg-panel);
+            color: var(--text-secondary);
+        }
+
+        .card-desc {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+        }
+
+        .hot-score {
+            color: var(--brand-accent);
+            font-weight: 700;
+        }
+
+        /* 紧凑列表 */
+        .compact-list {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 4px 0;
+            box-shadow: var(--shadow-default);
+        }
+
+        .compact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.15s;
+        }
+
+        .compact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .compact-list li:hover {
+            background: #fafbfc;
+        }
+
+        .list-index {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--brand-accent);
+            min-width: 20px;
+            text-align: center;
+            padding-top: 1px;
+        }
+
+        .list-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .list-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .list-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .list-time {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+
+        /* 分类网格 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            padding: 14px 16px;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .category-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+            color: var(--brand-primary);
+        }
+
+        .category-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* 深度解析 */
+        .deep-dive {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 24px 28px 28px;
+            box-shadow: var(--shadow-default);
+        }
+
+        .deep-dive h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin: 22px 0 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--brand-accent);
+        }
+
+        .deep-dive h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .deep-dive p {
+            font-size: 14.5px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .deep-dive ul {
+            margin: 8px 0 16px 18px;
+            list-style: disc;
+        }
+
+        .deep-dive ul li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .deep-dive strong {
+            color: var(--text-primary);
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-default);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 14px 18px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 18px;
+            color: var(--brand-accent);
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-item summary:hover {
+            background: #fafbfc;
+        }
+
+        .faq-answer {
+            padding: 0 18px 16px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* 用户评论 */
+        .comment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+        }
+
+        .comment-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 14px 16px;
+            box-shadow: var(--shadow-default);
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .comment-user {
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .comment-text {
+            margin-bottom: 6px;
+        }
+
+        .comment-meta {
+            font-size: 11px;
+            color: var(--text-tertiary);
+        }
+
+        /* 相关资讯 */
+        .news-list {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-default);
+        }
+
+        .news-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .news-summary {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        /* 标签索引 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-default);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .tag-pill:hover {
+            background: var(--brand-primary);
+            color: #fff;
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* 补充板块：时间线 */
+        .timeline {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 20px;
+            box-shadow: var(--shadow-default);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 14px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--brand-accent);
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .timeline-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* ---- 右侧辅助栏 ---- */
+        .sidebar-right {
+            position: sticky;
+            top: calc(var(--sticky-offset) + 16px);
+            align-self: start;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: calc(100vh - var(--sticky-offset) - 32px);
+            overflow-y: auto;
+        }
+
+        .sidebar-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 18px 16px;
+            box-shadow: var(--shadow-default);
+        }
+
+        .sidebar-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--brand-accent);
+            display: inline-block;
+        }
+
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            background: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(1) .rank-num { background: #f1c40f; color: #fff; }
+        .rank-item:nth-child(2) .rank-num { background: #bdc3c7; color: #fff; }
+        .rank-item:nth-child(3) .rank-num { background: #e67e22; color: #fff; }
+
+        .rank-title {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .rank-hot {
+            font-size: 11px;
+            color: var(--brand-accent);
+            font-weight: 600;
+        }
+
+        .update-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .update-item {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 6px;
+        }
+
+        .update-time {
+            color: var(--text-tertiary);
+            font-size: 11px;
+            white-space: nowrap;
+            min-width: 42px;
+        }
+
+        /* ---- 页脚 ---- */
+        .site-footer {
+            background: var(--brand-primary-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 0 24px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand {
+            font-size: 18px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .footer-desc {
+            font-size: 13px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.55);
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ---- 回到顶部 ---- */
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--brand-primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s, visibility 0.25s, background 0.2s;
+            z-index: 900;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--brand-accent);
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .channel-sidebar {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                padding: 12px;
+                overflow-x: auto;
+                max-height: none;
+            }
+
+            .channel-sidebar h2 {
+                width: 100%;
+                border-bottom: none;
+                padding-bottom: 4px;
+            }
+
+            .channel-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .channel-list a {
+                border-left: none;
+                border-radius: var(--radius-btn);
+                background: var(--bg-panel);
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+
+            .channel-list a.active {
+                background: var(--brand-primary);
+                color: #fff;
+                border-left-color: transparent;
+            }
+
+            .sidebar-right {
+                position: static;
+                max-height: none;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 20px;
+            }
+
+            .hero-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 34px;
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                flex: 0 0 auto;
+                max-width: 280px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 740px) {
+            .main-nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .header-actions .btn-outline {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 28px;
+            }
+
+            .hero-desc {
+                font-size: 14px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .comment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deep-dive {
+                padding: 18px 16px;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .back-to-top {
+                right: 16px;
+                bottom: 16px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .announce-inner {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 24px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        /* 移动端抽屉导航 */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .mobile-menu-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            padding: 24px 20px;
+            overflow-y: auto;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+        }
+
+        .mobile-menu-panel h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--brand-primary);
+        }
+
+        .mobile-menu-panel a {
+            display: block;
+            padding: 10px 0;
+            font-size: 15px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mobile-menu-panel a:hover {
+            color: var(--brand-primary);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--bg-panel);
+        }
+
+        /* 焦点可见 */
+        a:focus-visible,
+        button:focus-visible,
+        summary:focus-visible {
+            outline: 2px solid var(--brand-accent);
+            outline-offset: 2px;
+        }
+
+        /* 滚动偏移 */
+        [id] {
+            scroll-margin-top: calc(var(--sticky-offset) + 16px);
+        }
+
+        /* 隐藏滚动条辅助 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 吸顶公告条 -->
+    <div class="announce-bar" id="announce-bar">
+        <div class="announce-inner">
+            <span class="announce-brand">51视频网站</span>
+            <div class="announce-items">
+                <span><span class="dot"></span>11月8日 · 《漫长的季节》4K修复版上线</span>
+                <span><span class="dot"></span>11月7日 · 纪录片《大地生长》更新至第6集</span>
+                <span><span class="dot"></span>11月6日 · 经典科幻剧集《苍穹浩瀚》全季入库</span>
+                <span><span class="dot"></span>11月5日 · 用户上传作品《冬日漫游》获本周推荐</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 吸顶页头 -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="36" height="36" rx="8" fill="#1a3b5c"/>
+                    <path d="M10 12L16 18L10 24" stroke="#e67e22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 12L24 18L18 24" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">51视频网站</span>
+            </div>
+            <nav class="main-nav" aria-label="主导航">
+                <a href="/#featured">精选</a>
+                <a href="/#latest">最新</a>
+                <a href="/#categories">分类</a>
+                <a href="/#deep-dive">深度</a>
+                <a href="/#faq">问答</a>
+                <a href="/#comments">评论</a>
+                <a href="/#news">资讯</a>
+                <a href="/#recommend">推荐</a>
+                <a href="/#timeline">时间线</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-outline" type="button" aria-label="投稿入口">投稿</button>
+                <button class="btn-filled" type="button" aria-label="上传作品">上传</button>
+                <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false" id="menuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端抽屉菜单 -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="移动端导航菜单">
+        <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+        <div class="mobile-menu-panel">
+            <button class="mobile-menu-close" id="mobileClose" aria-label="关闭菜单">✕</button>
+            <h3>51视频网站 · 导航</h3>
+            <a href="/#featured">精选内容</a>
+            <a href="/#latest">最新更新</a>
+            <a href="/#categories">分类入口</a>
+            <a href="/#deep-dive">深度解析</a>
+            <a href="/#guide">体验指南</a>
+            <a href="/#faq">常见问答</a>
+            <a href="/#comments">用户评论</a>
+            <a href="/#news">相关资讯</a>
+            <a href="/#recommend">相关推荐</a>
+            <a href="/#timeline">条目时间线</a>
+            <a href="/#rank">热门榜单</a>
+        </div>
+    </div>
+
+    <!-- 首屏 -->
+    <section class="hero-section">
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <span class="hero-badge">影视聚合 · 深度内容</span>
+                <h1>51视频网站</h1>
+                <p class="hero-desc">汇聚电影、剧集、纪录片、动漫与综艺等视频内容，按类型与热度整理条目，提供最新更新动态、分类筛选与深度解析，适合追剧用户和影视爱好者浏览。</p>
+                <div class="hero-actions">
+                    <a href="/#featured" class="btn-hero-primary">浏览精选内容</a>
+                    <a href="/#latest" class="btn-hero-secondary">查看最新更新</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="30" width="300" height="180" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+                    <rect x="40" y="50" width="120" height="70" rx="8" fill="rgba(230,126,34,0.25)" stroke="rgba(230,126,34,0.4)" stroke-width="1"/>
+                    <rect x="170" y="50" width="130" height="30" rx="6" fill="rgba(255,255,255,0.1)"/>
+                    <rect x="170" y="90" width="130" height="30" rx="6" fill="rgba(255,255,255,0.08)"/>
+                    <rect x="40" y="135" width="260" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+                    <rect x="40" y="152" width="200" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                    <rect x="40" y="169" width="240" height="8" rx="4" fill="rgba(255,255,255,0.06)"/>
+                    <circle cx="280" cy="230" r="30" fill="rgba(230,126,34,0.15)" stroke="rgba(230,126,34,0.3)" stroke-width="1.5"/>
+                    <path d="M270 225L285 235L270 245" stroke="#e67e22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主布局：三栏门户 -->
+    <div class="container main-grid">
+        <!-- 左频道索引 -->
+        <aside class="channel-sidebar" aria-label="频道导航">
+            <h2>频道索引</h2>
+            <nav class="channel-list">
+                <a href="/#featured" class="active">全部内容</a>
+                <a href="/#categories">电影</a>
+                <a href="/#categories">剧集</a>
+                <a href="/#categories">纪录片</a>
+                <a href="/#categories">动漫</a>
+                <a href="/#categories">综艺</a>
+                <a href="/#categories">短片</a>
+                <a href="/#latest">最近更新</a>
+                <a href="/#rank">热度榜单</a>
+            </nav>
+        </aside>
+
+        <!-- 中主内容 -->
+        <main class="main-content">
+            <!-- 1. 主题领域概览 -->
+            <section class="section-block" id="overview">
+                <h2 class="section-title">影视内容生态概览</h2>
+                <p style="font-size:14.5px;line-height:1.8;color:var(--text-secondary);">
+                    视频内容聚合领域涵盖电影长片、剧集连载、纪录片、动漫番剧、综艺节目与短片创作等方向。当前值得关注的具体内容包括：经典剧集的4K修复重制、独立纪录片的系列化更新、动漫新番的季度排播，以及用户上传的原创短片。从内容形态看，电影侧重单片完整叙事，剧集以周更或全集放出两种模式并行，纪录片常按主题系列推进，动漫则围绕季度新番与经典旧作重播展开。平台侧的分类标签、评分与热度数据，为用户筛选内容提供了可参照的坐标。近期值得留意的条目有《漫长的季节》4K修复版、《大地生长》系列纪录片、《苍穹浩瀚》全季入库，以及用户创作短片《冬日漫游》。
+                </p>
+            </section>
+
+            <!-- 2. 精选内容推荐 -->
+            <section class="section-block" id="featured">
+                <h2 class="section-title">精选内容推荐</h2>
+                <div class="card-grid">
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/movie4k1/400/300" width="400" height="300" loading="lazy" alt="《漫长的季节》4K修复版剧照">
+                        <div class="card-body">
+                            <h3 class="card-title">漫长的季节 · 4K修复版</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">剧集</span>
+                                <span class="tag-soft">悬疑</span>
+                                <span class="tag-soft">家庭</span>
+                            </div>
+                            <p class="card-desc">辛爽执导，范伟、秦昊主演。1997年与2016年双线叙事，桦林钢厂旧案牵出三个老人跨越十八年的执念。修复版提升了暗部细节。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 9.2</span>
+                                <span>更新于 11-08</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/docland1/400/300" width="400" height="300" loading="lazy" alt="纪录片《大地生长》田野画面">
+                        <div class="card-body">
+                            <h3 class="card-title">大地生长 · 第6集</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">纪录片</span>
+                                <span class="tag-soft">自然</span>
+                                <span class="tag-soft">乡村</span>
+                            </div>
+                            <p class="card-desc">摄制组在云南元阳梯田跟拍水稻种植周期，本集记录哈尼族农户在雨季抢收的场景，同期声保留了劳动号子。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 8.7</span>
+                                <span>更新于 11-07</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/scifi2/400/300" width="400" height="300" loading="lazy" alt="《苍穹浩瀚》太空场景剧照">
+                        <div class="card-body">
+                            <h3 class="card-title">苍穹浩瀚 · 全季入库</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">剧集</span>
+                                <span class="tag-soft">科幻</span>
+                                <span class="tag-soft">太空</span>
+                            </div>
+                            <p class="card-desc">改编自詹姆斯·S·A·科里小说，故事围绕太阳系殖民地冲突展开，硬科幻设定与人际政治线并重。全季共六季一次性上线。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 8.9</span>
+                                <span>入库于 11-06</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/anime3/400/300" width="400" height="300" loading="lazy" alt="动漫《灵笼》第二季场景">
+                        <div class="card-body">
+                            <h3 class="card-title">灵笼 · 第二季</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">动漫</span>
+                                <span class="tag-soft">科幻</span>
+                                <span class="tag-soft">国创</span>
+                            </div>
+                            <p class="card-desc">艺画开天制作的原创动画，第二季延续末世灯塔设定，新增地面生态的详细描写，动作场面帧数较第一季有所提升。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 8.5</span>
+                                <span>更新于 11-05</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/shortfilm4/400/300" width="400" height="300" loading="lazy" alt="短片《冬日漫游》雪景画面">
+                        <div class="card-body">
+                            <h3 class="card-title">冬日漫游 · 用户短片</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">短片</span>
+                                <span class="tag-soft">实验</span>
+                                <span class="tag-soft">个人创作</span>
+                            </div>
+                            <p class="card-desc">上传者“北窗”用16毫米胶片拍摄的12分钟短片，记录哈尔滨松花江封江前后的日常片段，无对白，配乐由手风琴现场收音。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 7.8</span>
+                                <span>上传于 11-05</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="video-card">
+                        <img src="https://picsum.photos/seed/variety5/400/300" width="400" height="300" loading="lazy" alt="综艺《戏剧新生活》剧照">
+                        <div class="card-body">
+                            <h3 class="card-title">戏剧新生活 · 第3期</h3>
+                            <div class="card-meta">
+                                <span class="tag-type">综艺</span>
+                                <span class="tag-soft">戏剧</span>
+                                <span class="tag-soft">真人秀</span>
+                            </div>
+                            <p class="card-desc">黄磊、赖声川发起的戏剧真人秀，本期八位戏剧人用两天时间排练契诃夫《海鸥》片段，演出前发生道具丢失。</p>
+                            <div class="card-footer">
+                                <span class="hot-score">热度 8.1</span>
+                                <span>更新于 11-04</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 3. 最新更新 / 动态 -->
+            <section class="section-block" id="latest">
+                <h2 class="section-title">最新更新与动态</h2>
+                <ul class="compact-list">
+                    <li>
+                        <span class="list-index">1</span>
+                        <div class="list-content">
+                            <div class="list-title">《漫长的季节》4K修复版上线</div>
+                            <div class="list-desc">修复版补充了桦钢厂区夜景的暗部层次，单集码率提升至8Mbps。</div>
+                        </div>
+                        <span class="list-time">11-08</span>
+                    </li>
+                    <li>
+                        <span class="list-index">2</span>
+                        <div class="list-content">
+                            <div class="list-title">纪录片《大地生长》更新第6集</div>
+                            <div class="list-desc">本集聚焦元阳梯田雨季抢收，片尾附农户采访未删减片段。</div>
+                        </div>
+                        <span class="list-time">11-07</span>
+                    </li>
+                    <li>
+                        <span class="list-index">3</span>
+                        <div class="list-content">
+                            <div class="list-title">《苍穹浩瀚》全六季入库</div>
+                            <div class="list-desc">包含幕后花絮与主创评论音轨，科幻迷可查看制作特辑。</div>
+                        </div>
+                        <span class="list-time">11-06</span>
+                    </li>
+                    <li>
+                        <span class="list-index">4</span>
+                        <div class="list-content">
+                            <div class="list-title">用户短片《冬日漫游》获本周推荐</div>
+                            <div class="list-desc">上传者“北窗”使用16毫米胶片拍摄，片长12分钟，无对白。</div>
+                        </div>
+                        <span class="list-time">11-05</span>
+                    </li>
+                    <li>
+                        <span class="list-index">5</span>
+                        <div class="list-content">
+                            <div class="list-title">《灵笼》第二季更新第4集</div>
+                            <div class="list-desc">地面生态细节增加，本集出现新的噬极兽变种，时长28分钟。</div>
+                        </div>
+                        <span class="list-time">11-05</span>
+                    </li>
+                    <li>
+                        <span class="list-index">6</span>
+                        <div class="list-content">
+                            <div class="list-title">《戏剧新生活》第3期上线</div>
+                            <div class="list-desc">八位戏剧人排练《海鸥》片段，演出前发生道具丢失事件。</div>
+                        </div>
+                        <span class="list-time">11-04</span>
+                    </li>
+                    <li>
+                        <span class="list-index">7</span>
+                        <div class="list-content">
+                            <div class="list-title">经典电影《小城之春》修复版上线</div>
+                            <div class="list-desc">费穆1948年作品，本次修复基于原始底片扫描，保留胶片颗粒。</div>
+                        </div>
+                        <span class="list-time">11-03</span>
+                    </li>
+                    <li>
+                        <span class="list-index">8</span>
+                        <div class="list-content">
+                            <div class="list-title">动漫《时光代理人》第二季完结</div>
+                            <div class="list-desc">全季11集，最后一集片尾曲更换为全新编曲版本。</div>
+                        </div>
+                        <span class="list-time">11-02</span>
+                    </li>
+                    <li>
+                        <span class="list-index">9</span>
+                        <div class="list-content">
+                            <div class="list-title">纪录片《但是还有书籍》第三季官宣</div>
+                            <div class="list-desc">预计2027年第一季度上线，首集聚焦二手书店经营者。</div>
+                        </div>
+                        <span class="list-time">11-01</span>
+                    </li>
+                    <li>
+                        <span class="list-index">10</span>
+                        <div class="list-content">
+                            <div class="list-title">用户上传功能新增“胶片扫描”分类</div>
+                            <div class="list-desc">投稿者可选择胶片材质标签，系统自动匹配宽高比建议。</div>
+                        </div>
+                        <span class="list-time">10-30</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 4. 分类入口 -->
+            <section class="section-block" id="categories">
+                <h2 class="section-title">分类入口</h2>
+                <div class="category-grid">
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">🎬</span>电影
+                    </a>
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">📺</span>剧集
+                    </a>
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">🌍</span>纪录片
+                    </a>
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">🎨</span>动漫
+                    </a>
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">🎤</span>综艺
+                    </a>
+                    <a href="/#featured" class="category-item">
+                        <span class="category-icon">📽️</span>短片
+                    </a>
+                    <a href="/#latest" class="category-item">
+                        <span class="category-icon">🆕</span>最近更新
+                    </a>
+                    <a href="/#rank" class="category-item">
+                        <span class="category-icon">🔥</span>热度榜单
+                    </a>
+                </div>
+            </section>
+
+            <!-- 5. 深度解析正文 -->
+            <section class="section-block" id="deep-dive">
+                <h2 class="section-title">深度解析：剧集修复与内容筛选</h2>
+                <div class="deep-dive">
+                    <h3>4K修复的实际差异在哪里</h3>
+                    <p>《漫长的季节》4K修复版上线后，最直观的变化是暗部细节。原版第3集桦钢厂区夜景中，高光区域（例如车间顶灯）与暗部（例如铁轨旁阴影）的亮度差较大，部分暗部细节在普通流媒体码率下被压缩。修复版将单集码率从约4Mbps提升至8Mbps，暗部层次更清晰。对比第3集同一场景：修复版中，铁轨旁的碎石纹理和远处厂房的窗户轮廓可以分辨，原版则趋于一片深灰。这一差异在65英寸以上屏幕或投影设备上更为明显。</p>
+
+                    <h3>纪录片系列更新节奏与观众预期</h3>
+                    <p>《大地生长》采用周更模式，每周四更新一集，每集时长约45分钟。第6集“雨季抢收”的播出时间比原定计划推迟了一天，原因是后期团队补录了哈尼族农户的采访同期声。从第1集到第6集，平均制作周期为三周，但第6集因为雨季拍摄窗口短，剪辑时间压缩到两周。观众在评论区反映，第6集片尾的未删减采访片段比正片更有信息量。这种“正片+花絮”的编排方式在近年纪录片系列中逐渐常见，第6集的花絮时长达到12分钟，接近正片的三分之一。</p>
+
+                    <h3>科幻剧集的全季入库与观看策略</h3>
+                    <p>《苍穹浩瀚》全六季一次性入库，对未看过的观众来说，选择观看顺序时有两点需要考虑。第一，第一季前3集信息密度较高，涉及地球、火星、小行星带三方政治格局的铺垫，如果直接跳看后续季，容易对人物关系产生困惑。第二，第六季结局与原著小说存在差异，剧集在第六季结尾对某条故事线做了收束处理，而小说在后续三部中继续展开。平台将该剧标记为“硬科幻”，实际观看体验中，太空战斗场景的物理设定较为严谨，但人物对话中的政治术语较多。建议新观众从第一季第4集开始试看，如果对三方角力线感兴趣再回补前3集。</p>
+
+                    <h3>用户短片的上传与筛选</h3>
+                    <p>用户上传的短片《冬日漫游》被推荐至首页，与其拍摄方式有关。该片使用16毫米胶片拍摄，在数码拍摄为主流的投稿区中属于少数。片长12分钟，无对白，配乐由手风琴现场收音。从上传信息看，投稿者“北窗”在投稿时选择了“实验”与“个人创作”两个标签，并附上了胶片型号（柯达Vision3 250D）。平台推荐编辑在推荐语中提及“胶片质感的不可复制性”。横向对比近期上传的同类短片，使用胶片的投稿占比不足5%，多数用户使用数码相机或手机拍摄。筛选时，编辑主要参考三个指标：画质稳定性、声音处理完整度、投稿者是否提供了拍摄参数。三个指标中，声音处理完整度常被忽略，部分短片画面较好但环境音收录粗糙。</p>
+                </div>
+            </section>
+
+            <!-- 6. 体验指南 / 消费路径 -->
+            <section class="section-block" id="guide">
+                <h2 class="section-title">体验指南：从哪类内容开始看</h2>
+                <div style="background:var(--bg-card);border-radius:var(--radius-card);padding:22px 24px;box-shadow:var(--shadow-default);">
+                    <p style="font-size:14.5px;line-height:1.75;color:var(--text-secondary);margin-bottom:14px;">
+                        面对多个类型和条目，先看什么、怎么判断值不值得投入时间，可以按下面的顺序操作：
+                    </p>
+                    <ol style="margin-left:20px;list-style:decimal;color:var(--text-secondary);font-size:14px;line-height:1.8;">
+                        <li style="margin-bottom:8px;"><strong>先看类型标签与时长。</strong>如果只有半小时，优先选短片或单集纪录片；如果有两小时以上，再考虑电影或剧集连看。动漫单集通常24分钟，适合碎片时间。</li>
+                        <li style="margin-bottom:8px;"><strong>判断条目是否适合自己。</strong>查看卡片上的“热度”分数与“更新于”日期。热度在8.0以上的条目，通常已有一定观众基数；更新日期近的条目，讨论区信息较新鲜。注意区分“更新”与“入库”：前者是连载内容有新集，后者是整部作品一次性上架。</li>
+                        <li style="margin-bottom:8px;"><strong>比较同类条目。</strong>同是悬疑剧集，可以对比《漫长的季节》与《苍穹浩瀚》的叙事节奏：前者依赖时间线交错，后者依赖空间格局展开。先看自己更适应哪种叙事方式，再决定是否投入整季。</li>
+                        <li style="margin-bottom:8px;"><strong>利用评论区与深度解析。</strong>评论中常出现“第几集开始好看”“哪一集注水”等具体信息，比简介更有参考价值。深度解析中提到的修复差异、更新节奏，可以帮助判断是否值得重看或追更。</li>
+                        <li><strong>投稿与上传的判断。</strong>如果自己有短片想上传，先看“胶片扫描”分类下的作品，了解平台对拍摄参数的要求；投稿时附上设备与参数，更容易被推荐编辑注意到。</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="section-block" id="faq">
+                <h2 class="section-title">常见问答</h2>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>《漫长的季节》4K修复版和原版有什么区别？</summary>
+                        <div class="faq-answer">修复版将单集码率从约4Mbps提升至8Mbps，暗部细节更清晰，例如第3集桦钢厂区夜景中铁轨旁的碎石纹理可以分辨。此外修复版保留了胶片颗粒，没有做过度降噪。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>《苍穹浩瀚》需要从第一季开始看吗？</summary>
+                        <div class="faq-answer">第一季前3集信息密度较高，涉及地球、火星、小行星带三方政治格局的铺垫。如果直接跳看后续季，可能对人物关系产生困惑。建议从第一季第4集试看，如果对三方角力线感兴趣再回补前3集。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>纪录片《大地生长》一共多少集？</summary>
+                        <div class="faq-answer">第一季共8集，目前更新至第6集“雨季抢收”，每周四更新一集。第6集片尾附有12分钟未删减采访片段。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>用户短片《冬日漫游》是用什么设备拍的？</summary>
+                        <div class="faq-answer">上传者“北窗”使用16毫米胶片拍摄，胶片型号为柯达Vision3 250D，片长12分钟，无对白，配乐由手风琴现场收音。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>动漫《灵笼》第二季和第一季比有什么变化？</summary>
+                        <div class="faq-answer">第二季延续末世灯塔设定，新增地面生态的详细描写，动作场面帧数较第一季有所提升，单集时长保持在28分钟左右。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>《小城之春》修复版和原版有哪些不同？</summary>
+                        <div class="faq-answer">本次修复基于原始底片扫描，保留了胶片颗粒，没有做数字降噪。画面比例维持原版的1.37:1，音轨经过重新整理，去除了部分底噪。</div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- 8. 用户评论 -->
+            <section class="section-block" id="comments">
+                <h2 class="section-title">用户评论</h2>
+                <div class="comment-grid">
+                    <div class="comment-card">
+                        <div class="comment-user">北窗</div>
+                        <div class="comment-text">《冬日漫游》的胶片质感确实好，雪地那段的颗粒感很真实。不过手风琴收音有点飘，下次得借个更好的麦。</div>
+                        <div class="comment-meta">11-08 14:23</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">追剧小赵</div>
+                        <div class="comment-text">《漫长的季节》修复版第3集我对比着看了，铁轨旁边的碎石纹路确实出来了，以前就是一团黑。</div>
+                        <div class="comment-meta">11-08 12:10</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">太空歌剧爱好者</div>
+                        <div class="comment-text">苍穹浩瀚第六季结局改得有点快，小说里还有后续三部呢，剧集这边直接收束了，有点可惜。</div>
+                        <div class="comment-meta">11-07 23:45</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">元阳梯田</div>
+                        <div class="comment-text">《大地生长》第6集片尾那段采访比正片好看，农户讲雨季抢收的细节特别具体，正片反而剪得有点赶。</div>
+                        <div class="comment-meta">11-07 19:02</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">灵笼老粉</div>
+                        <div class="comment-text">第二季动作场面帧数上来了，地面生态的设定也补了不少，就是配音有时候对不上口型。</div>
+                        <div class="comment-meta">11-06 21:30</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">戏剧新生活观众</div>
+                        <div class="comment-text">第3期道具丢失那段笑死，赖声川现场改调度，演员硬着头皮上，反而出了个好效果。</div>
+                        <div class="comment-meta">11-05 18:12</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">胶片玩家</div>
+                        <div class="comment-text">投稿区胶片分类终于有了，之前只能选“其他”，找同类作品很不方便。</div>
+                        <div class="comment-meta">11-05 10:45</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">江南旧客</div>
+                        <div class="comment-text">《小城之春》修复版画面比例没变，这点好，有些修复版非要裁成16:9，看着难受。</div>
+                        <div class="comment-meta">11-04 22:08</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">时光代理人催更</div>
+                        <div class="comment-text">第二季最后一集片尾曲换了编曲，听第一遍有点不习惯，听三遍就顺了。</div>
+                        <div class="comment-meta">11-03 20:30</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">追更达人</div>
+                        <div class="comment-text">最近纪录片更新都挺准时，就《大地生长》第6集晚了一天，不过花絮补上了，能接受。</div>
+                        <div class="comment-meta">11-03 15:17</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">北窗的邻居</div>
+                        <div class="comment-text">《冬日漫游》里松花江封江那段我就在现场，拍得挺还原的，就是手风琴声音有点糊。</div>
+                        <div class="comment-meta">11-02 11:52</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">老剧修复关注者</div>
+                        <div class="comment-text">《小城之春》的底片扫描确实保留了很多细节，费穆的镜头构图在小屏幕上也能看清楚。</div>
+                        <div class="comment-meta">11-01 19:40</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">随便看看</div>
+                        <div class="comment-text">首页推荐比之前清爽了，分类标签点进去能直接筛，不用翻好几页。</div>
+                        <div class="comment-meta">10-31 09:05</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">科幻迷老周</div>
+                        <div class="comment-text">苍穹浩瀚的评论音轨值得听，主创讲了很多太空战斗场景的物理设定细节，比正片还硬核。</div>
+                        <div class="comment-meta">10-30 21:18</div>
+                    </div>
+                    <div class="comment-card">
+                        <div class="comment-user">哈尼族小伙</div>
+                        <div class="comment-text">《大地生长》拍我们元阳梯田，雨季抢收那段很真实，就是镜头稍微有点少，多拍点就好了。</div>
+                        <div class="comment-meta">10-29 16:33</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. 相关资讯 -->
+            <section class="section-block" id="news">
+                <h2 class="section-title">相关资讯</h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <div class="news-title">《漫长的季节》4K修复版上线首日播放量破800万</div>
+                        <div class="news-date">2026-11-08</div>
+                        <div class="news-summary">修复版上线12小时内，单集平均播放量达到820万次，其中第3集桦钢厂区夜景的弹幕量较原版增长47%。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">纪录片《大地生长》第6集推迟一天播出，片尾增加12分钟花絮</div>
+                        <div class="news-date">2026-11-07</div>
+                        <div class="news-summary">原定11月6日上线的第6集因补录哈尼族农户采访同期声，延至11月7日播出，片尾附12分钟未删减采访片段。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">《苍穹浩瀚》全六季入库，含幕后花絮与评论音轨</div>
+                        <div class="news-date">2026-11-06</div>
+                        <div class="news-summary">全六季共62集一次性上架，额外包含6段幕后制作特辑和3条主创评论音轨，科幻迷可查看太空战斗场景的物理设定说明。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">用户短片《冬日漫游》获本周推荐，胶片拍摄引关注</div>
+                        <div class="news-date">2026-11-05</div>
+                        <div class="news-summary">该片使用柯达Vision3 250D胶片拍摄，片长12分钟，投稿者“北窗”在投稿时附上了胶片型号与拍摄参数。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">《灵笼》第二季第4集出现新噬极兽变种，单集时长28分钟</div>
+                        <div class="news-date">2026-11-05</div>
+                        <div class="news-summary">本集新增地面生态的详细描写，噬极兽变种的出现方式与第一季设定形成呼应，动作场面帧数较第一季提升约20%。</div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-title">《小城之春》修复版上线，保留原始胶片颗粒</div>
+                        <div class="news-date">2026-11-03</div>
+                        <div class="news-summary">修复基于原始底片扫描，画面比例维持1.37:1，音轨经过重新整理，去除了部分底噪，未做数字降噪处理。</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. 相关推荐 -->
+            <section class="section-block" id="recommend">
+                <h2 class="section-title">相关推荐</h2>
+                <div class="tag-cloud">
+                    <a href="/#featured" class="tag-pill">漫长的季节 4K修复</a>
+                    <a href="/#featured" class="tag-pill">大地生长 第6集</a>
+                    <a href="/#featured" class="tag-pill">苍穹浩瀚 全季</a>
+                    <a href="/#featured" class="tag-pill">灵笼 第二季</a>
+                    <a href="/#featured" class="tag-pill">冬日漫游 短片</a>
+                    <a href="/#featured" class="tag-pill">戏剧新生活 第3期</a>
+                    <a href="/#featured" class="tag-pill">小城之春 修复版</a>
+                    <a href="/#featured" class="tag-pill">时光代理人 第二季</a>
+                </div>
+            </section>
+
+            <!-- 11. 补充板块：热门榜单 -->
+            <section class="section-block" id="rank">
+                <h2 class="section-title">热门榜单</h2>
+                <ul class="compact-list">
+                    <li>
+                        <span class="list-index">1</span>
+                        <div class="list-content">
+                            <div class="list-title">漫长的季节 · 4K修复版</div>
+                            <div class="list-desc">热度9.2，11月8日上线，单集码率8Mbps</div>
+                        </div>
+                        <span class="hot-score">🔥</span>
+                    </li>
+                    <li>
+                        <span class="list-index">2</span>
+                        <div class="list-content">
+                            <div class="list-title">苍穹浩瀚 · 全六季</div>
+                            <div class="list-desc">热度8.9，11月6日入库，含评论音轨</div>
+                        </div>
+                        <span class="hot-score">🔥</span>
+                    </li>
+                    <li>
+                        <span class="list-index">3</span>
+                        <div class="list-content">
+                            <div class="list-title">大地生长 · 第6集</div>
+                            <div class="list-desc">热度8.7，11月7日更新，片尾12分钟花絮</div>
+                        </div>
+                        <span class="hot-score">🔥</span>
+                    </li>
+                    <li>
+                        <span class="list-index">4</span>
+                        <div class="list-content">
+                            <div class="list-title">灵笼 · 第二季</div>
+                            <div class="list-desc">热度8.5，11月5日更新第4集</div>
+                        </div>
+                        <span class="hot-score">🔥</span>
+                    </li>
+                    <li>
+                        <span class="list-index">5</span>
+                        <div class="list-content">
+                            <div class="list-title">戏剧新生活 · 第3期</div>
+                            <div class="list-desc">热度8.1，11月4日上线，排练《海鸥》</div>
+                        </div>
+                        <span class="hot-score">🔥</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 补充板块：条目时间线 -->
+            <section class="section-block" id="timeline">
+                <h2 class="section-title">条目时间线</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026-11-08</div>
+                            <div class="timeline-title">《漫长的季节》4K修复版上线</div>
+                            <div class="timeline-desc">单集码率提升至8Mbps，暗部细节增强</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026-11-07</div>
+                            <div class="timeline-title">《大地生长》第6集更新</div>
+                            <div class="timeline-desc">推迟一天播出，片尾新增12分钟花絮</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026-11-06</div>
+                            <div class="timeline-title">《苍穹浩瀚》全六季入库</div>
+                            <div class="timeline-desc">含幕后花絮与3条评论音轨</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026-11-05</div>
+                            <div class="timeline-title">《冬日漫游》获本周推荐</div>
+                            <div class="timeline-desc">16毫米胶片拍摄，柯达Vision3 250D</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2026-11-03</div>
+                            <div class="timeline-title">《小城之春》修复版上线</div>
+                            <div class="timeline-desc">原始底片扫描，保留胶片颗粒</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧辅助栏 -->
+        <aside class="sidebar-right" aria-label="辅助信息">
+            <div class="sidebar-card">
+                <h3>热度排行</h3>
+                <div class="rank-list">
+                    <div class="rank-item">
+                        <span class="rank-num">1</span>
+                        <span class="rank-title">漫长的季节 4K</span>
+                        <span class="rank-hot">9.2</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">2</span>
+                        <span class="rank-title">苍穹浩瀚 全季</span>
+                        <span class="rank-hot">8.9</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">3</span>
+                        <span class="rank-title">大地生长 第6集</span>
+                        <span class="rank-hot">8.7</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">4</span>
+                        <span class="rank-title">灵笼 第二季</span>
+                        <span class="rank-hot">8.5</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">5</span>
+                        <span class="rank-title">戏剧新生活 第3期</span>
+                        <span class="rank-hot">8.1</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-num">6</span>
+                        <span class="rank-title">冬日漫游 短片</span>
+                        <span class="rank-hot">7.8</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>最近更新</h3>
+                <div class="update-flow">
+                    <div class="update-item">
+                        <span class="update-time">11-08</span>
+                        <span>漫长的季节 4K修复版</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-07</span>
+                        <span>大地生长 第6集</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-06</span>
+                        <span>苍穹浩瀚 全六季</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-05</span>
+                        <span>冬日漫游 用户短片</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-05</span>
+                        <span>灵笼 第二季第4集</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-time">11-04</span>
+                        <span>戏剧新生活 第3期</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>互动入口</h3>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <button class="btn-outline" type="button" style="width:100%;text-align:center;">投稿作品</button>
+                    <button class="btn-filled" type="button" style="width:100%;text-align:center;">上传短片</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">51视频网站</div>
+                    <p class="footer-desc">影视内容聚合与深度解析，覆盖2026年11月前后上线的电影、剧集、纪录片、动漫与用户短片，每周整理更新动态与热度变化。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <a href="/#featured">电影</a>
+                    <a href="/#featured">剧集</a>
+                    <a href="/#featured">纪录片</a>
+                    <a href="/#featured">动漫</a>
+                </div>
+                <div class="footer-col">
+                    <h4>互动栏目</h4>
+                    <a href="/#comments">用户评论</a>
+                    <a href="/#rank">热门榜单</a>
+                    <a href="/#timeline">条目时间线</a>
+                    <a href="/#news">相关资讯</a>
+                </div>
+                <div class="footer-col">
+                    <h4>参与入口</h4>
+                    <a href="/#guide">投稿指南</a>
+                    <a href="/#guide">上传短片</a>
+                    <a href="/#faq">常见问答</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 51视频网站 · 内容聚合示例页面</span>
+                <span>数据更新至 2026年11月8日</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <script>
+        (function() {
+            // 移动端菜单
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileClose = document.getElementById('mobileClose');
+
+            function openMenu() {
+                mobileMenu.classList.add('open');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', openMenu);
+            }
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMenu);
+            }
+            if (mobileClose) {
+                mobileClose.addEventListener('click', closeMenu);
+            }
+
+            // 点击菜单内链接后关闭
+            const menuLinks = mobileMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // 键盘 Esc 关闭
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                    closeMenu();
+                }
+            });
+
+            // 回到顶部
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > window.innerHeight) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // 频道高亮（简单滚动监听）
+            const channelLinks = document.querySelectorAll('.channel-list a');
+            const sections = document.querySelectorAll('.main-content section[id]');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        channelLinks.forEach(function(link) {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '/#' + id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-20% 0px -60% 0px' });
+
+            sections.forEach(function(section) {
+                observer.observe(section);
+            });
+        })();
+    </script>
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "51视频网站",
+        "description": "影视内容聚合与深度解析，覆盖电影、剧集、纪录片、动漫与用户短片，提供最新更新动态、分类筛选与深度解析。",
+        "url": "",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "《漫长的季节》4K修复版和原版有什么区别？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "修复版将单集码率从约4Mbps提升至8Mbps，暗部细节更清晰，例如第3集桦钢厂区夜景中铁轨旁的碎石纹理可以分辨。此外修复版保留了胶片颗粒，没有做过度降噪。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "《苍穹浩瀚》需要从第一季开始看吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "第一季前3集信息密度较高，涉及地球、火星、小行星带三方政治格局的铺垫。如果直接跳看后续季，可能对人物关系产生困惑。建议从第一季第4集试看，如果对三方角力线感兴趣再回补前3集。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "纪录片《大地生长》一共多少集？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "第一季共8集，目前更新至第6集“雨季抢收”，每周四更新一集。第6集片尾附有12分钟未删减采访片段。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "用户短片《冬日漫游》是用什么设备拍的？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "上传者“北窗”使用16毫米胶片拍摄，胶片型号为柯达Vision3 250D，片长12分钟，无对白，配乐由手风琴现场收音。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "动漫《灵笼》第二季和第一季比有什么变化？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "第二季延续末世灯塔设定，新增地面生态的详细描写，动作场面帧数较第一季有所提升，单集时长保持在28分钟左右。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "《小城之春》修复版和原版有哪些不同？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "本次修复基于原始底片扫描，保留了胶片颗粒，没有做数字降噪。画面比例维持原版的1.37:1，音轨经过重新整理，去除了部分底噪。"
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+  </html>
