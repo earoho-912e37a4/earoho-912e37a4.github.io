@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wiki45九一吃瓜在线大赛 - 赛事爆料聚合与讨论社区</title>
+<meta name="description" content="wiki45九一吃瓜在线大赛聚合赛事爆料、选手动态与评委点评，涵盖初赛回放、争议裁定、名场面时间线、选手证言与观众评论，适合关注网络赛事与吃瓜话题的观众追踪每日进展。">
+<meta name="keywords" content="wiki45九一吃瓜在线大赛">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161a2b'/%3E%3Ccircle cx='22' cy='26' r='8' fill='%23ff5a5f'/%3E%3Ccircle cx='44' cy='26' r='8' fill='%23ffc94d'/%3E%3Cpath d='M14 44c6 10 30 10 36 0' stroke='%2340d99a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#161a2b;
+  --ink-2:#2c3350;
+  --main:#ff5a5f;
+  --main-2:#ff8a4c;
+  --main-deep:#c9333a;
+  --main-soft:#fff0ef;
+  --gold:#ffc94d;
+  --mint:#40d99a;
+  --bg:#f7f5f2;
+  --panel:#ffffff;
+  --panel-2:#fbf9f6;
+  --t1:#1a1d2b;
+  --t2:#4c5266;
+  --t3:#868ca0;
+  --line:#e7e2da;
+  --line-2:#f0ece5;
+  --r-card:16px;
+  --r-btn:999px;
+  --r-tag:8px;
+  --r-banner:20px;
+  --sh:0 2px 10px rgba(26,29,43,.06);
+  --sh-h:0 10px 26px rgba(26,29,43,.12);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --ann-h:44px;
+  --head-h:66px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ann-h) + var(--head-h) + 16px)}
+body{
+  margin:0;background:var(--bg);color:var(--t1);font-family:var(--font);
+  font-size:16px;line-height:1.78;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:800}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-left:1.2em}
+li{margin-bottom:6px}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--main-deep);outline-offset:2px}
+
+/* ---------- 吸顶公告 + 页头 ---------- */
+.stick-wrap{position:sticky;top:0;z-index:80}
+.annbar{
+  height:var(--ann-h);background:var(--ink);color:#fff;display:flex;align-items:center;
+  gap:14px;padding:0 16px;font-size:13.5px;overflow:hidden;
+}
+.annbar .brandmark{display:flex;align-items:center;gap:7px;font-weight:800;color:#fff;white-space:nowrap;letter-spacing:.2px}
+.annbar .brandmark svg{width:20px;height:20px;flex:none}
+.annbar .ann-list{display:flex;gap:22px;overflow:hidden;flex:1;mask-image:linear-gradient(90deg,#000 92%,transparent)}
+.annbar .ann-item{white-space:nowrap;color:#e8e4dc}
+.annbar .ann-item b{color:var(--gold);font-weight:700;margin-right:6px}
+.annbar .ann-item i{font-style:normal;color:var(--mint);margin-right:6px}
+.annbar .ann-more{white-space:nowrap;color:#fff;background:rgba(255,255,255,.13);padding:3px 12px;border-radius:var(--r-btn);font-size:12.5px;border:0;cursor:pointer}
+.annbar .ann-more:hover{background:rgba(255,255,255,.24)}
+
+.site-head{
+  height:var(--head-h);background:rgba(255,255,255,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;
+  padding:0 20px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo .lg-svg{width:36px;height:36px;flex:none}
+.logo .lg-txt{font-weight:900;font-size:17px;letter-spacing:-.3px;color:var(--ink)}
+.head-nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.head-nav::-webkit-scrollbar{display:none}
+.head-nav a{
+  padding:7px 13px;border-radius:var(--r-btn);font-size:14.5px;color:var(--t2);
+  white-space:nowrap;font-weight:600;transition:.18s;
+}
+.head-nav a:hover{background:var(--main-soft);color:var(--main-deep)}
+.head-nav a.on{background:var(--ink);color:#fff}
+.head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.search-box{display:flex;align-items:center;background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-btn);padding:4px 6px 4px 14px}
+.search-box input{border:0;background:transparent;outline:none;font-size:14px;width:150px;color:var(--t1);font-family:inherit}
+.search-box input::placeholder{color:var(--t3)}
+.search-box button{border:0;background:var(--main);color:#fff;border-radius:var(--r-btn);padding:5px 14px;font-size:13px;cursor:pointer;font-weight:700}
+.search-box button:hover{background:var(--main-deep)}
+.btn-post{background:var(--ink);color:#fff;border:0;padding:9px 16px;border-radius:var(--r-btn);font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.btn-post:hover{background:var(--main-deep)}
+.burger{display:none;border:1px solid var(--line);background:var(--panel);border-radius:10px;width:40px;height:38px;align-items:center;justify-content:center;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* 移动抽屉 */
+.drawer-mask{position:fixed;inset:0;background:rgba(16,18,28,.5);z-index:95;display:none}
+.drawer-mask.show{display:block}
+.drawer{
+  position:fixed;top:0;left:0;height:100%;width:280px;max-width:82vw;background:var(--panel);
+  z-index:96;transform:translateX(-102%);transition:transform .26s ease;padding:18px;overflow-y:auto;
+  box-shadow:var(--sh-h);
+}
+.drawer.show{transform:none}
+.drawer h4{font-size:13px;color:var(--t3);letter-spacing:1px;margin:14px 0 8px}
+.drawer a{display:block;padding:9px 10px;border-radius:10px;font-size:15px;font-weight:600;color:var(--t2)}
+.drawer a:hover{background:var(--main-soft);color:var(--main-deep)}
+.drawer .drawer-close{float:right;border:0;background:var(--panel-2);width:34px;height:34px;border-radius:10px;font-size:18px;cursor:pointer;color:var(--t2)}
+
+/* ---------- 容器 ---------- */
+.wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+.hero{margin-top:22px}
+.hero-card{
+  position:relative;overflow:hidden;border-radius:var(--r-banner);
+  background:linear-gradient(120deg,#1d2036 0%,#2a2140 52%,#3a1d2a 100%);
+  color:#fff;padding:38px 40px 34px;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center;
+  box-shadow:var(--sh);
+}
+.hero-card::after{
+  content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle at 40% 40%,rgba(255,90,95,.55),transparent 68%);filter:blur(6px);
+}
+.hero-card::before{
+  content:"";position:absolute;left:-60px;bottom:-120px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(64,217,154,.28),transparent 70%);
+}
+.hero-left{position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:5px 14px;border-radius:var(--r-btn);font-size:12.5px;font-weight:700;letter-spacing:.5px;color:#ffe9c9}
+.hero-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--mint);display:inline-block;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(28px,4vw,46px);margin:16px 0 12px;letter-spacing:-.5px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero-desc{font-size:15.5px;line-height:1.8;color:#d9d5e6;max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.hero-actions .b1{background:var(--main);color:#fff;padding:11px 24px;border-radius:var(--r-btn);font-weight:800;font-size:15px;transition:.18s}
+.hero-actions .b1:hover{background:var(--main-deep);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,90,95,.35)}
+.hero-actions .b2{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);color:#fff;padding:11px 22px;border-radius:var(--r-btn);font-weight:700;font-size:15px}
+.hero-actions .b2:hover{background:rgba(255,255,255,.2)}
+.hero-stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:22px;color:var(--gold);font-weight:900;letter-spacing:-.5px}
+.hero-stats div span{font-size:12.5px;color:#b8b3c8}
+.hero-visual{position:relative;z-index:2;display:flex;justify-content:center}
+.hero-visual svg{width:100%;max-width:340px;height:auto}
+
+/* ---------- 三栏门户 ---------- */
+.layout{display:grid;grid-template-columns:178px minmax(0,1fr) 250px;gap:22px;margin:26px auto 40px;align-items:start}
+.chan-nav{position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px)}
+.chan-nav .cn-title{font-size:12px;letter-spacing:1.5px;color:var(--t3);font-weight:800;margin:0 0 10px 6px}
+.chan-nav ul{list-style:none;margin:0;padding:0}
+.chan-nav li{margin:0 0 3px}
+.chan-nav a{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;font-size:14.5px;font-weight:600;color:var(--t2);transition:.16s}
+.chan-nav a .cn-dot{width:6px;height:6px;border-radius:50%;background:var(--line);flex:none;transition:.16s}
+.chan-nav a:hover{background:var(--panel);color:var(--main-deep);box-shadow:var(--sh)}
+.chan-nav a:hover .cn-dot{background:var(--main)}
+.chan-nav a.on{background:var(--ink);color:#fff}
+.chan-nav a.on .cn-dot{background:var(--gold)}
+.chan-nav .cn-cta{margin-top:16px;background:var(--main-soft);border:1px dashed #f6c9c6;border-radius:12px;padding:12px;font-size:12.5px;color:var(--main-deep);line-height:1.6}
+.chan-nav .cn-cta b{display:block;font-size:13.5px;margin-bottom:3px}
+
+.main-col{min-width:0}
+.side-col{position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px);display:flex;flex-direction:column;gap:16px}
+
+/* ---------- 通用板块 ---------- */
+.sec{background:var(--panel);border-radius:var(--r-card);padding:24px 24px 22px;box-shadow:var(--sh);margin-bottom:20px;scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 16px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+.sec-head h2{font-size:20.5px;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:5px;height:19px;border-radius:3px;background:linear-gradient(180deg,var(--main),var(--main-2))}
+.sec-sub{font-size:13px;color:var(--t3);margin-top:3px;font-weight:500}
+.sec-more{font-size:13px;color:var(--main-deep);font-weight:700;white-space:nowrap}
+.sec-more:hover{text-decoration:underline}
+
+/* 概览 */
+.overview p{font-size:15.3px;color:var(--t2);line-height:1.85}
+.overview .ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.ov-cell{background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:13px 14px}
+.ov-cell b{display:block;font-size:14px;color:var(--t1);margin-bottom:3px}
+.ov-cell span{font-size:12.8px;color:var(--t3);line-height:1.6}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-h);border-color:#f3d9d6}
+.card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--panel-2)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.card:hover .thumb img{transform:scale(1.04)}
+.card .heat{position:absolute;right:9px;top:9px;background:rgba(22,26,43,.82);color:var(--gold);font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:var(--r-btn);backdrop-filter:blur(4px)}
+.card .body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:15.5px;line-height:1.45}
+.card .type{font-size:11.5px;font-weight:800;color:var(--main-deep);background:var(--main-soft);padding:2px 8px;border-radius:var(--r-tag);align-self:flex-start}
+.card .look{font-size:13px;color:var(--t2);line-height:1.7;flex:1}
+.card .tags{display:flex;flex-wrap:wrap;gap:5px}
+.card .tags span{font-size:11.5px;color:var(--t3);background:var(--panel-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:var(--r-tag)}
+.card .meta{display:flex;justify-content:space-between;font-size:12px;color:var(--t3);border-top:1px dashed var(--line-2);padding-top:8px}
+.card .meta b{color:var(--main-deep)}
+
+/* 最新动态列表 */
+.feed{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.feed li{display:flex;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line-2);align-items:flex-start}
+.feed li:last-child{border-bottom:0;padding-bottom:0}
+.feed .time{flex:none;width:74px;font-size:12.5px;color:var(--t3);font-weight:700;padding-top:2px}
+.feed .fi{flex:1;min-width:0}
+.feed .fi b{font-size:15px;color:var(--t1);display:inline}
+.feed .fi b:hover{color:var(--main-deep)}
+.feed .fi .tagx{font-size:11px;font-weight:800;color:#0d7a55;background:#e5f8f0;padding:1px 7px;border-radius:var(--r-tag);margin-left:7px;vertical-align:1px}
+.feed .fi p{margin:3px 0 0;font-size:13.2px;color:var(--t2);line-height:1.68}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:11px}
+.cat{display:block;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:14px 15px;transition:.18s}
+.cat:hover{background:var(--main-soft);border-color:#f6c9c6;transform:translateY(-2px)}
+.cat b{display:block;font-size:15px;margin-bottom:2px}
+.cat span{font-size:12.3px;color:var(--t3);line-height:1.55}
+
+/* 深度解析 */
+.deep p{font-size:15.2px;color:var(--t2);line-height:1.9}
+.deep h3{font-size:17px;margin:24px 0 10px;padding-left:12px;border-left:4px solid var(--main);line-height:1.4}
+.deep h3:first-of-type{margin-top:6px}
+.deep ul{font-size:14.8px;color:var(--t2);line-height:1.85}
+.deep .callout{background:var(--panel-2);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:14px 18px;margin:16px 0;font-size:14.4px;color:var(--t2);line-height:1.8}
+.deep .callout b{color:var(--t1)}
+.deep table{width:100%;border-collapse:collapse;font-size:13.8px;margin:14px 0}
+.deep th,.deep td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;line-height:1.65}
+.deep th{background:var(--panel-2);font-weight:800;color:var(--t1);white-space:nowrap}
+.deep td{color:var(--t2)}
+
+/* 体验指南步骤 */
+.steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;counter-reset:st}
+.steps li{position:relative;padding:15px 18px 15px 58px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;font-size:14.4px;color:var(--t2);line-height:1.78}
+.steps li::before{counter-increment:st;content:counter(st);position:absolute;left:16px;top:15px;width:28px;height:28px;border-radius:9px;background:var(--ink);color:var(--gold);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center}
+.steps li b{color:var(--t1);display:block;margin-bottom:2px;font-size:14.8px}
+
+/* FAQ */
+.faq details{border:1px solid var(--line-2);border-radius:12px;margin-bottom:10px;background:var(--panel-2);overflow:hidden}
+.faq details[open]{background:var(--panel);border-color:#f3d9d6}
+.faq summary{padding:14px 18px;font-weight:700;font-size:14.8px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;color:var(--main);font-weight:400;line-height:1;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding:0 18px 15px;font-size:14.2px;color:var(--t2);line-height:1.82}
+
+/* 评论 */
+.cmt-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.cmt{background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:13px 15px}
+.cmt .ch{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.cmt .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--main-2),var(--gold));color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.cmt .nm{font-size:13.4px;font-weight:800;color:var(--t1)}
+.cmt .ts{font-size:11.5px;color:var(--t3);margin-left:auto}
+.cmt p{margin:0;font-size:13.6px;color:var(--t2);line-height:1.75}
+.cmt .lk{font-size:11.8px;color:var(--t3);margin-top:7px}
+.cmt .lk b{color:var(--main-deep)}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{display:grid;grid-template-columns:96px 1fr;gap:14px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;transition:.18s}
+.news-item:hover{border-color:#f3d9d6;box-shadow:var(--sh)}
+.news-item img{width:96px;height:100%;min-height:88px;object-fit:cover}
+.news-item .nb{padding:11px 15px 12px 0}
+.news-item h3{font-size:15px;margin-bottom:4px}
+.news-item h3:hover{color:var(--main-deep)}
+.news-item .nd{font-size:11.8px;color:var(--main-deep);font-weight:700;margin-bottom:3px}
+.news-item p{margin:0;font-size:13px;color:var(--t2);line-height:1.7}
+
+/* 相关推荐 标签索引 */
+.reco{display:flex;flex-wrap:wrap;gap:9px}
+.reco a{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-btn);padding:7px 15px;font-size:13.6px;font-weight:600;color:var(--t2);transition:.16s}
+.reco a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.reco a small{color:var(--t3);font-weight:500;margin-left:5px}
+.reco a:hover small{color:#c9c5d6}
+
+/* 榜单 */
+.rank{list-style:none;padding:0;margin:0}
+.rank li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line-2)}
+.rank li:last-child{border-bottom:0;padding-bottom:0}
+.rank .no{flex:none;width:24px;height:24px;border-radius:8px;background:var(--panel-2);color:var(--t3);font-weight:900;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+.rank li:nth-child(1) .no{background:var(--main);color:#fff}
+.rank li:nth-child(2) .no{background:var(--main-2);color:#fff}
+.rank li:nth-child(3) .no{background:var(--gold);color:var(--ink)}
+.rank .ri{flex:1;min-width:0}
+.rank .ri b{font-size:14.4px;display:block;line-height:1.45}
+.rank .ri span{font-size:12.3px;color:var(--t3)}
+.rank .rv{font-size:12.5px;font-weight:800;color:var(--main-deep);flex:none;padding-top:2px}
+
+/* 时间线 */
+.tl{list-style:none;padding:0;margin:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 16px 30px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--panel);border:3px solid var(--main)}
+.tl .td{font-size:12px;font-weight:800;color:var(--main-deep);letter-spacing:.3px}
+.tl b{display:block;font-size:14.4px;margin:1px 0 2px}
+.tl span{font-size:13px;color:var(--t2);line-height:1.7}
+
+/* 投稿互动区 */
+.post-zone{background:linear-gradient(120deg,#1d2036,#33203a);color:#fff;border-radius:var(--r-card);padding:26px 26px 24px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
+.post-zone h2{font-size:21px;color:#fff;display:flex;align-items:center;gap:10px}
+.post-zone h2::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--gold)}
+.post-zone p{font-size:14.2px;color:#d3cfe0;line-height:1.8;margin:10px 0 0}
+.post-zone .pz-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.post-zone .pz-actions button{border:0;border-radius:var(--r-btn);padding:10px 20px;font-size:14px;font-weight:800;cursor:pointer}
+.post-zone .pz-actions .p1{background:var(--main);color:#fff}
+.post-zone .pz-actions .p1:hover{background:var(--main-deep)}
+.post-zone .pz-actions .p2{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.24)}
+.post-zone .pz-actions .p2:hover{background:rgba(255,255,255,.22)}
+.post-zone .pz-stat{display:flex;flex-direction:column;gap:10px}
+.post-zone .pz-stat div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.post-zone .pz-stat b{font-size:18px;color:var(--gold);font-weight:900}
+.post-zone .pz-stat span{font-size:12.5px;color:#c6c1d6}
+
+/* 侧栏 */
+.side-card{background:var(--panel);border-radius:var(--r-card);padding:17px 17px 15px;box-shadow:var(--sh)}
+.side-card h3{font-size:15px;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.side-card h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--main)}
+.side-hot{list-style:none;padding:0;margin:0;counter-reset:sh}
+.side-hot li{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line-2);align-items:flex-start;counter-increment:sh}
+.side-hot li:last-child{border-bottom:0;padding-bottom:0}
+.side-hot li::before{content:counter(sh);flex:none;width:18px;height:18px;border-radius:5px;background:var(--panel-2);color:var(--t3);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.side-hot li:nth-child(-n+3)::before{background:var(--main-soft);color:var(--main-deep)}
+.side-hot a{font-size:13.4px;font-weight:600;line-height:1.5;color:var(--t1)}
+.side-hot a:hover{color:var(--main-deep)}
+.side-hot span{display:block;font-size:11.5px;color:var(--t3);font-weight:500}
+.side-quote{font-size:13.2px;color:var(--t2);line-height:1.8;background:var(--panel-2);border-radius:10px;padding:12px 14px;border-left:3px solid var(--gold)}
+.side-quote b{display:block;font-size:12px;color:var(--t3);margin-top:8px;font-weight:600}
+.side-links{display:flex;flex-wrap:wrap;gap:7px}
+.side-links a{font-size:12.6px;background:var(--panel-2);border:1px solid var(--line-2);padding:4px 10px;border-radius:var(--r-tag);color:var(--t2)}
+.side-links a:hover{background:var(--main-soft);color:var(--main-deep);border-color:#f6c9c6}
+.side-timeline{list-style:none;padding:0;margin:0;font-size:12.8px}
+.side-timeline li{padding:7px 0;border-bottom:1px dashed var(--line-2);color:var(--t2);line-height:1.6}
+.side-timeline li:last-child{border-bottom:0;padding-bottom:0}
+.side-timeline b{color:var(--main-deep);font-size:11.8px;display:block}
+
+/* 空搜索 */
+.nores{display:none;padding:26px;text-align:center;color:var(--t3);font-size:14.5px;background:var(--panel-2);border-radius:12px;border:1px dashed var(--line)}
+.nores.show{display:block}
+.hidden{display:none !important}
+
+/* 页脚 */
+.site-foot{background:var(--ink);color:#b9b4c6;padding:44px 0 26px;margin-top:20px;font-size:13.6px}
+.foot-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;color:#fff;font-weight:900;font-size:17px}
+.foot-brand svg{width:32px;height:32px}
+.site-foot p{line-height:1.8;color:#9a95ab;margin:0 0 12px}
+.site-foot h4{color:#fff;font-size:14px;margin-bottom:10px}
+.site-foot ul{list-style:none;padding:0;margin:0}
+.site-foot li{margin-bottom:7px}
+.site-foot a{color:#b9b4c6;font-size:13.4px}
+.site-foot a:hover{color:var(--gold)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#86819a}
+
+/* 回顶 */
+.backtop{position:fixed;right:20px;bottom:24px;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:18px;cursor:pointer;box-shadow:var(--sh-h);opacity:0;pointer-events:none;transition:.22s;z-index:70}
+.backtop.show{opacity:1;pointer-events:auto}
+.backtop:hover{background:var(--main-deep);transform:translateY(-3px)}
+
+/* 响应式 */
+@media (max-width:1100px){
+  .layout{grid-template-columns:160px minmax(0,1fr);}
+  .side-col{position:static;grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+}
+@media (max-width:1024px){
+  .head-nav{display:none}
+  .burger{display:flex}
+  .search-box input{width:110px}
+  .hero-card{grid-template-columns:1fr;padding:30px 26px}
+  .hero-visual{display:none}
+  .overview .ov-grid{grid-template-columns:repeat(2,1fr)}
+  .post-zone{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  .layout{grid-template-columns:1fr}
+  .chan-nav{position:static;background:var(--panel);border-radius:var(--r-card);padding:14px;box-shadow:var(--sh)}
+  .chan-nav ul{display:flex;flex-wrap:wrap;gap:6px}
+  .chan-nav li{margin:0}
+  .chan-nav a{padding:7px 12px;font-size:13.5px;background:var(--panel-2)}
+  .chan-nav .cn-cta{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:740px){
+  .annbar .ann-list{display:none}
+  .annbar .ann-more{margin-left:auto}
+  .site-head{gap:10px;padding:0 14px}
+  .search-box{display:none}
+  .btn-post{padding:8px 13px;font-size:13px}
+  .hero-stats{gap:18px}
+  .card-grid{grid-template-columns:1fr}
+  .cmt-list{grid-template-columns:1fr}
+  .news-item{grid-template-columns:76px 1fr}
+  .news-item img{width:76px;min-height:80px}
+  .sec{padding:19px 17px}
+  .overview .ov-grid{grid-template-columns:1fr}
+  .deep table{font-size:12.8px}
+  .deep th,.deep td{padding:7px 8px}
+  .foot-grid{grid-template-columns:1fr}
+  .backtop{right:14px;bottom:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告 + 页头 -->
+<div class="stick-wrap">
+  <div class="annbar" id="annbar">
+    <span class="brandmark">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#ff5a5f"/><circle cx="22" cy="26" r="7.5" fill="#161a2b"/><circle cx="44" cy="26" r="7.5" fill="#161a2b"/><path d="M15 44c6 9 28 9 34 0" stroke="#ffc94d" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+      wiki45九一吃瓜在线大赛
+    </span>
+    <div class="ann-list">
+      <span class="ann-item"><b>11-08</b> 复赛第二轮《城市噪声地图》赛道晋级名单公示</span>
+      <span class="ann-item"><i>新增</i>评委席补入两位视听技术评审，评分细则第 4 条同步修订</span>
+      <span class="ann-item"><b>11-07</b> 选手「南屿汽水」申诉材料已受理，结果预计 11-09 前发布</span>
+    </div>
+    <button class="ann-more" type="button" id="annMore">6 条更新</button>
+  </div>
+
+  <header class="site-head">
+    <a class="logo" href="/#top" aria-label="wiki45九一吃瓜在线大赛首页">
+      <svg class="lg-svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#161a2b"/><circle cx="22" cy="26" r="7.5" fill="#ff5a5f"/><circle cx="44" cy="26" r="7.5" fill="#ffc94d"/><path d="M15 44c6 9 28 9 34 0" stroke="#40d99a" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+      <span class="lg-txt">wiki45九一吃瓜在线大赛</span>
+    </a>
+    <nav class="head-nav" aria-label="主题导航">
+      <a href="/#overview" class="on">赛事概览</a>
+      <a href="/#featured">精选条目</a>
+      <a href="/#feed">最新动态</a>
+      <a href="/#cats">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观看指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">观众评论</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="搜条目 / 选手 / 赛道" aria-label="站内搜索">
+        <button type="button" id="searchBtn">搜索</button>
+      </div>
+      <button class="btn-post" type="button" onclick="window.location.href='/#postzone'">我要投稿</button>
+      <button class="burger" type="button" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </div>
+  </header>
+</div>
+
+<!-- 移动抽屉 -->
+<div class="drawer-mask" id="drawerMask"></div>
+<aside class="drawer" id="drawer" aria-label="移动端导航" aria-hidden="true">
+  <button class="drawer-close" type="button" id="drawerClose" aria-label="关闭菜单">×</button>
+  <h4>频道导航</h4>
+  <a href="/#overview">赛事概览</a>
+  <a href="/#featured">精选条目</a>
+  <a href="/#feed">最新动态</a>
+  <a href="/#cats">分类入口</a>
+  <a href="/#deep">深度解析</a>
+  <a href="/#guide">观看指南</a>
+  <a href="/#faq">常见问答</a>
+  <a href="/#comments">观众评论</a>
+  <a href="/#news">相关资讯</a>
+  <a href="/#reco">相关推荐</a>
+  <a href="/#postzone">投稿与互动</a>
+  <h4>热门赛道</h4>
+  <a href="/#featured">城市噪声地图</a>
+  <a href="/#featured">旧物改造实验室</a>
+  <a href="/#featured">方言配音擂台</a>
+  <a href="/#featured">十分钟短纪录片</a>
+</aside>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero wrap" aria-labelledby="h1title">
+    <div class="hero-card">
+      <div class="hero-left">
+        <span class="hero-eyebrow"><i></i>2026 秋季赛 · 复赛进行中</span>
+        <h1 id="h1title">wiki45九一吃瓜在线大赛</h1>
+        <p class="hero-desc">汇聚九一吃瓜在线大赛的赛道回放、晋级名单、评委打分、争议裁定与选手赛后发声。每场比赛后 6 小时内更新条目卡，争议节点单独标注「已公开事实 / 当事人回应 / 网友推测」三层信息，方便对照。</p>
+        <div class="hero-actions">
+          <a class="b1" href="/#featured">看复赛精选条目</a>
+          <a class="b2" href="/#deep">读评分细则拆解</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>46</b><span>本届参赛条目</span></div>
+          <div><b>12</b><span>赛道分类</span></div>
+          <div><b>11-08</b><span>最近更新</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 340 260" role="presentation">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5a5f"/><stop offset="1" stop-color="#ffc94d"/>
+            </linearGradient>
+          </defs>
+          <circle cx="270" cy="52" r="40" fill="rgba(255,201,77,.16)"/>
+          <circle cx="62" cy="200" r="54" fill="rgba(64,217,154,.12)"/>
+          <rect x="34" y="56" width="150" height="94" rx="14" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.24)"/>
+          <rect x="48" y="72" width="76" height="9" rx="4.5" fill="url(#g1)"/>
+          <rect x="48" y="90" width="112" height="7" rx="3.5" fill="rgba(255,255,255,.28)"/>
+          <rect x="48" y="105" width="88" height="7" rx="3.5" fill="rgba(255,255,255,.18)"/>
+          <rect x="48" y="126" width="52" height="14" rx="7" fill="rgba(255,90,95,.85)"/>
+          <rect x="150" y="122" width="180" height="96" rx="14" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.2)"/>
+          <rect x="166" y="140" width="46" height="60" rx="8" fill="rgba(64,217,154,.5)"/>
+          <rect x="220" y="158" width="46" height="42" rx="8" fill="rgba(255,201,77,.5)"/>
+          <rect x="274" y="146" width="40" height="54" rx="8" fill="rgba(255,90,95,.5)"/>
+          <circle cx="196" cy="34" r="14" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="3"/>
+          <path d="M206 44l14 14" stroke="rgba(255,255,255,.4)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏布局 -->
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- 左频道索引 -->
+      <aside class="chan-nav" aria-label="频道索引">
+        <p class="cn-title">频道索引</p>
+        <ul>
+          <li><a href="/#overview" class="on"><span class="cn-dot"></span>赛事概览</a></li>
+          <li><a href="/#featured"><span class="cn-dot"></span>精选条目</a></li>
+          <li><a href="/#feed"><span class="cn-dot"></span>最新动态</a></li>
+          <li><a href="/#cats"><span class="cn-dot"></span>分类入口</a></li>
+          <li><a href="/#deep"><span class="cn-dot"></span>深度解析</a></li>
+          <li><a href="/#guide"><span class="cn-dot"></span>观看指南</a></li>
+          <li><a href="/#faq"><span class="cn-dot"></span>常见问答</a></li>
+          <li><a href="/#comments"><span class="cn-dot"></span>观众评论</a></li>
+          <li><a href="/#news"><span class="cn-dot"></span>相关资讯</a></li>
+          <li><a href="/#reco"><span class="cn-dot"></span>相关推荐</a></li>
+          <li><a href="/#ranking"><span class="cn-dot"></span>即时榜单</a></li>
+          <li><a href="/#postzone"><span class="cn-dot"></span>投稿互动</a></li>
+        </ul>
+        <div class="cn-cta">
+          <b>选手申诉通道</b>
+          复赛结果公布后 24 小时内提交材料，需附原始工程文件与时间戳。
+        </div>
+      </aside>
+
+      <!-- 中主内容 -->
+      <div class="main-col">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="sec overview" id="overview">
+          <div class="sec-head">
+            <div>
+              <h2>九一吃瓜在线大赛的赛道构成</h2>
+              <p class="sec-sub">2026 秋季赛 · 复赛阶段 · 12 个赛道</p>
+            </div>
+          </div>
+          <p>九一吃瓜在线大赛是一档以「生活观察 + 现场制作」为核心的线上创作赛事，2026 秋季赛从 9 月 14 日开放报名，10 月 26 日完成初赛评审，当前进入复赛第二轮。比赛分十二个赛道：城市噪声地图、旧物改造实验室、方言配音擂台、十分钟短纪录片、菜市场口述史、楼道观察笔记、通勤路线测评、外卖包装再设计、社区公告栏重写、夜间灯光采样、家庭食谱考据、公交站台速写。参赛者以个人或两人小组为单位，提交 3—10 分钟的视频或可交互图文作品。</p>
+          <p>本届变化集中在两处。评分权重从「创意 40 / 完成度 30 / 表达 30」调整为「创意 30 / 完成度 30 / 表达 25 / 现场应变 15」，新增的现场应变环节要求选手在公布命题后 90 分钟内补拍一段 60 秒素材。另一处是评委席从 5 人扩到 7 人，补入两位视听技术评审，分别负责声音设计与剪辑节奏打分。复赛第一轮结束后，已有 3 组选手因「素材拍摄时间与提交时间戳不符」被要求补充说明。</p>
+          <p>值得关注的具体条目包括：南屿汽水的《凌晨四点的洒水车》用 7 段环境声串起一条街道的清晨；「三号楼道」小组把 27 户人家的门牌拓印做成可翻页网页；方言配音赛道的《潮汕阿嬷讲台风》单条播放 38.6 万，是本届目前传播最广的复赛作品。争议集中在《城市噪声地图》赛道的评分表——有选手指出两位评委对同一段素材的「声音层次」打分相差 4 分（满分 10 分）。</p>
+          <div class="ov-grid">
+            <div class="ov-cell"><b>赛程节点</b><span>初赛 10-26 截止 · 复赛一 11-01 · 复赛二 11-08 · 决赛 11-22</span></div>
+            <div class="ov-cell"><b>评审构成</b><span>7 位评委，含 2 位视听技术评审、1 位田野调查研究者</span></div>
+            <div class="ov-cell"><b>作品规格</b><span>视频 3—10 分钟或可交互图文，需附拍摄时间戳与素材清单</span></div>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="sec" id="featured">
+          <div class="sec-head">
+            <div>
+              <h2>复赛精选条目</h2>
+              <p class="sec-sub">按评委均分与站内收藏量排序 · 11-08 更新</p>
+            </div>
+            <a class="sec-more" href="/#ranking">查看即时榜单 →</a>
+          </div>
+          <div class="card-grid" id="featuredGrid">
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/naosheng1/400/300" width="400" height="300" loading="lazy" alt="凌晨街道洒水车经过时的路面反光与声波示意图"><span class="heat">热度 9.4</span></div>
+              <div class="body">
+                <span class="type">城市噪声地图</span>
+                <h3>《凌晨四点的洒水车》</h3>
+                <p class="look">选手南屿汽水用 7 段环境声串起同一条街道从 4:00 到 6:30 的变化，第 5 段把洒水车鸣笛与早点摊开锅声叠在一起，评委称「剪辑点落在呼吸上」。</p>
+                <div class="tags"><span>环境声</span><span>长镜头</span><span>城市观察</span></div>
+                <div class="meta"><span>评委均分 <b>8.9</b></span><span>时长 8′12″</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/loudao2/400/300" width="400" height="300" loading="lazy" alt="老式居民楼门牌拓印拼贴的网页界面"><span class="heat">热度 9.1</span></div>
+              <div class="body">
+                <span class="type">楼道观察笔记</span>
+                <h3>《三号楼道：27 个门牌》</h3>
+                <p class="look">两人小组逐户征得同意后拓印门牌，做成可翻页网页，每页附一句住户原话。第 14 页那位不愿出镜的阿姨只留了一句「别拍我家猫」，成了评论区引用最多的一页。</p>
+                <div class="tags"><span>门牌拓印</span><span>可交互图文</span><span>口述</span></div>
+                <div class="meta"><span>评委均分 <b>8.6</b></span><span>页面 27 屏</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/chaoshan3/400/300" width="400" height="300" loading="lazy" alt="潮汕老屋天井与台风前压低的云层"><span class="heat">热度 8.8</span></div>
+              <div class="body">
+                <span class="type">方言配音擂台</span>
+                <h3>《潮汕阿嬷讲台风》</h3>
+                <p class="look">用潮汕话复述 2018 年台风「山竹」过境当晚的停电细节，3 分 41 秒里出现 11 个本地俗语。单条播放 38.6 万，是本届传播最广的复赛作品。</p>
+                <div class="tags"><span>潮汕话</span><span>口述史</span><span>台风记忆</span></div>
+                <div class="meta"><span>评委均分 <b>8.4</b></span><span>播放 38.6 万</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/jiuwu4/400/300" width="400" height="300" loading="lazy" alt="拆解后的旧电风扇零件按材质分类摆放"><span class="heat">热度 8.5</span></div>
+              <div class="body">
+                <span class="type">旧物改造实验室</span>
+                <h3>《拆了 6 台旧风扇之后》</h3>
+                <p class="look">选手把 6 台报废电风扇拆成 41 个零件，按材质、可回收性、产地三项做表，最后只保留 3 个零件做成台灯。评委给的评价是「减法做得比加法狠」。</p>
+                <div class="tags"><span>旧物拆解</span><span>材料清单</span><span>再设计</span></div>
+                <div class="meta"><span>评委均分 <b>8.3</b></span><span>时长 6′40″</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/caishi5/400/300" width="400" height="300" loading="lazy" alt="清晨菜市场摊主整理蔬菜的手部特写"><span class="heat">热度 8.2</span></div>
+              <div class="body">
+                <span class="type">菜市场口述史</span>
+                <h3>《卖藕的周师傅讲了 40 分钟》</h3>
+                <p class="look">原素材 42 分钟，剪成 7 分 20 秒。周师傅讲 1998 年洪水后藕价怎么变、摊位怎么从桥头挪到棚里，时间线由他自己在纸上画出来。</p>
+                <div class="tags"><span>菜市场</span><span>价格史</span><span>手绘图</span></div>
+                <div class="meta"><span>评委均分 <b>8.1</b></span><span>素材 42′</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/tongqin6/400/300" width="400" height="300" loading="lazy" alt="早高峰地铁换乘通道里的人群与指示牌"><span class="heat">热度 8.0</span></div>
+              <div class="body">
+                <span class="type">通勤路线测评</span>
+                <h3>《换乘 3 次，省下 11 分钟》</h3>
+                <p class="look">连续 10 个工作日实测两条通勤路线，记录每段步行耗时与换乘等待。结论是绕行方案在 7:40 前有效，8:00 后反而慢 4 分钟。</p>
+                <div class="tags"><span>通勤实测</span><span>换乘耗时</span><span>时间表</span></div>
+                <div class="meta"><span>评委均分 <b>7.9</b></span><span>实测 10 天</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/waibao7/400/300" width="400" height="300" loading="lazy" alt="外卖餐盒剪开后摊平在桌面上的结构图"><span class="heat">热度 7.8</span></div>
+              <div class="body">
+                <span class="type">外卖包装再设计</span>
+                <h3>《把餐盒剪开摊平之后》</h3>
+                <p class="look">收集 12 种常见外卖餐盒，逐一剪开摊平做结构对照，指出其中 4 种存在「盖子卡扣易断」问题，并给出改法草图。</p>
+                <div class="tags"><span>包装结构</span><span>对照图</span><span>改法草图</span></div>
+                <div class="meta"><span>评委均分 <b>7.7</b></span><span>样本 12 种</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"><img src="https://picsum.photos/seed/yedeng8/400/300" width="400" height="300" loading="lazy" alt="夜间小区路灯下的色温对比与光斑"><span class="heat">热度 7.6</span></div>
+              <div class="body">
+                <span class="type">夜间灯光采样</span>
+                <h3>《一条街的 9 种色温》</h3>
+                <p class="look">用色温计沿街采样 9 个点位，从 2700K 的路灯到 6500K 的便利店招牌，附一张夜间行走的视觉疲劳自评表。</p>
+                <div class="tags"><span>色温采样</span><span>夜行体验</span><span>数据表</span></div>
+                <div class="meta"><span>评委均分 <b>7.5</b></span><span>点位 9 个</span></div>
+              </div>
+            </article>
+
+          </div>
+          <div class="nores" id="noRes">没有匹配的条目，换个关键词试试，比如「噪声」「潮汕」「门牌」。</div>
+        </section>
+
+        <!-- 3. 最新动态 -->
+        <section class="sec" id="feed">
+          <div class="sec-head">
+            <div>
+              <h2>赛程更新与选手动态</h2>
+              <p class="sec-sub">按时间倒序 · 截至 11-08 18:00</p>
+            </div>
+          </div>
+          <ul class="feed">
+            <li>
+              <span class="time">11-08 17:40</span>
+              <div class="fi"><b>复赛第二轮晋级名单公示</b><span class="tagx">名单</span>
+                <p>《城市噪声地图》赛道 8 组晋级，南屿汽水以 8.9 分居首；评委组同步公布 7 人打分表，「声音层次」一项最高 9 分、最低 5 分。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-08 15:12</span>
+              <div class="fi"><b>评委席补入两位视听技术评审</b><span class="tagx">规则</span>
+                <p>新增评审分别负责声音设计与剪辑节奏，评分细则第 4 条由「整体印象」拆成「声画同步」与「节奏控制」两项，各占 5 分。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-08 11:03</span>
+              <div class="fi"><b>「南屿汽水」就素材时间戳提交补充说明</b><span class="tagx">回应</span>
+                <p>选手公开原始工程文件的创建时间与相机 SD 卡导出记录，说明第 5 段素材拍摄于 10-29 04:17，晚于命题公布 11 分钟。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-07 20:26</span>
+              <div class="fi"><b>《潮汕阿嬷讲台风》播放破 38 万</b><span class="tagx">数据</span>
+                <p>该条作品在站内收藏 1.2 万、转发 8600 次，评论区出现大量潮汕本地用户补充 2018 年停电记忆，形成二次口述。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-07 16:48</span>
+              <div class="fi"><b>「三号楼道」小组公开 27 户授权书扫描件</b><span class="tagx">合规</span>
+                <p>为回应「是否征得住户同意」的质疑，小组贴出 27 份授权书，其中 3 份为口头同意后补签，签署日期集中在 10-18 至 10-21。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-06 22:15</span>
+              <div class="fi"><b>现场应变环节命题公布：90 分钟补拍 60 秒</b><span class="tagx">赛制</span>
+                <p>复赛第二轮起，选手需在公布命题后 90 分钟内补拍一段 60 秒素材，命题为「你所在街道最容易被忽略的声音」，不得使用既有素材。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-06 14:30</span>
+              <div class="fi"><b>《拆了 6 台旧风扇之后》零件清单被转载</b><span class="tagx">条目</span>
+                <p>41 个零件的材质与产地表格被 3 个手工类账号转载，原作者在评论区补充了第 42 个零件（一颗锈死的螺丝）的去向。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-05 19:02</span>
+              <div class="fi"><b>方言配音擂台增设「本地语料核校」环节</b><span class="tagx">规则</span>
+                <p>为避免俗语误用，赛道新增 1 位本地语料核校员，对进入复赛的 11 条作品逐条核对俗语用法，已退回 2 条要求补注。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-04 10:40</span>
+              <div class="fi"><b>初赛阶段共收到 46 组有效投稿</b><span class="tagx">数据</span>
+                <p>其中视频作品 33 组、可交互图文 13 组；按赛道看，城市噪声地图 9 组最多，公交站台速写 2 组最少。</p>
+              </div>
+            </li>
+            <li>
+              <span class="time">11-03 21:07</span>
+              <div class="fi"><b>《换乘 3 次，省下 11 分钟》实测数据遭质疑</b><span class="tagx">争议</span>
+                <p>有观众指出 10 天实测里 3 天遇降雨，耗时偏高。选手回应称降雨日已单列，未计入均值，并贴出分日记录表。</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="sec" id="cats">
+          <div class="sec-head">
+            <div>
+              <h2>赛道分类入口</h2>
+              <p class="sec-sub">12 个赛道按内容方向归类</p>
+            </div>
+          </div>
+          <div class="cat-grid">
+            <a class="cat" href="/#featured"><b>城市噪声地图</b><span>环境声采样与街道声景 · 9 组</span></a>
+            <a class="cat" href="/#featured"><b>旧物改造实验室</b><span>拆解、材料清单与再设计 · 6 组</span></a>
+            <a class="cat" href="/#featured"><b>方言配音擂台</b><span>方言口述与俗语核校 · 5 组</span></a>
+            <a class="cat" href="/#featured"><b>十分钟短纪录片</b><span>单主题 3—10 分钟成片 · 4 组</span></a>
+            <a class="cat" href="/#featured"><b>菜市场口述史</b><span>摊主口述与价格变迁 · 4 组</span></a>
+            <a class="cat" href="/#featured"><b>楼道观察笔记</b><span>门牌、告示与邻里细节 · 3 组</span></a>
+            <a class="cat" href="/#featured"><b>通勤路线测评</b><span>换乘耗时与路径对比 · 3 组</span></a>
+            <a class="cat" href="/#featured"><b>夜间灯光采样</b><span>色温数据与夜行体验 · 2 组</span></a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="sec deep" id="deep">
+          <div class="sec-head">
+            <div>
+              <h2>评分细则拆解：现场应变 15 分怎么给</h2>
+              <p class="sec-sub">基于 11-06 公布的复赛第二轮细则与 7 份评委打分表</p>
+            </div>
+          </div>
+
+          <p>本届争议最集中的不是作品好坏，而是「现场应变」这 15 分怎么落。11-06 公布的细则只有三行：命题合规、60 秒内完成叙事、体现对环境的即时判断。三行字对应 7 位评委，落到打分表上出现了 4 种不同的拆法。把 7 份打分表并排看，能看出问题在哪。</p>
+
+          <h3>同一段 60 秒素材，7 位评委给出 4 种权重</h3>
+          <p>以《城市噪声地图》赛道复赛第二轮为例，8 组选手的「现场应变」得分区间是 9—14 分（满分 15）。评委 A（视听技术）把 15 分拆成「声音采集 8 分 + 叙事 7 分」，评委 B（田野调查）拆成「观察准确性 10 分 + 表达 5 分」，评委 C 与 D 采用「合规 5 分 + 叙事 5 分 + 判断 5 分」三等分，评委 E 只写总分不写分项。评委 F、G 是新增的视听技术评审，沿用评委 A 的拆法。</p>
+          <p>结果是一组选手在评委 A 处拿 13 分、在评委 B 处拿 9 分，总分被拉平后仍以 0.4 分之差落选。选手在 11-07 提交的申诉材料里附了两张打分表截图，指出「同一段 60 秒素材，B 评委的观察准确性扣分理由是『未拍到街道名』，而命题并未要求出现街道名」。申诉目前处于受理状态。</p>
+
+          <div class="callout">
+            <b>可核对的三层信息：</b>已公开事实——7 份打分表的分项拆法确有 4 种，细则原文只有三行；当事人回应——评委组 11-08 15:12 公告称「将在决赛前统一分项模板」，未直接回应扣分理由；网友推测——「B 评委偏好地标入镜」的说法目前只有 2 条评论提及，无打分表佐证。
+          </div>
+
+          <h3>「素材时间戳」核查为什么卡住 3 组选手</h3>
+          <p>细则要求提交原始工程文件与拍摄时间戳，本意是防止用旧素材顶替命题作业。执行中出现两个漏洞。第一，手机拍摄的素材在导出后时间戳会重置为导出时间，选手需额外提供相册截图或 SD 卡文件列表；第二，部分剪辑软件的项目文件只记录最后保存时间，不记录素材导入时间。3 组被要求补充说明的选手里，有 2 组卡在第二点。</p>
+          <p>南屿汽水的处理方式被不少选手当作范例：公开相机 SD 卡的目录截图（文件创建时间 10-29 04:17）、剪辑软件的项目创建时间（10-29 05:02）、以及一段 12 秒的屏录，展示从 SD 卡导入素材的完整过程。这套材料在 11-08 11:03 发布后，评论区有选手表示「照着做了三件套」。</p>
+
+          <table>
+            <caption style="text-align:left;font-size:12.5px;color:var(--t3);padding-bottom:6px">复赛第二轮「现场应变」评分拆法对照</caption>
+            <thead>
+              <tr><th>评委</th><th>分项拆法</th><th>该赛道给分区间</th><th>是否写扣分理由</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A（视听技术）</td><td>声音采集 8 + 叙事 7</td><td>10—14</td><td>写</td></tr>
+              <tr><td>B（田野调查）</td><td>观察准确性 10 + 表达 5</td><td>9—13</td><td>写</td></tr>
+              <tr><td>C、D</td><td>合规 5 + 叙事 5 + 判断 5</td><td>10—14</td><td>部分写</td></tr>
+              <tr><td>E</td><td>只写总分</td><td>11—13</td><td>不写</td></tr>
+              <tr><td>F、G（新增）</td><td>沿用 A 的拆法</td><td>10—14</td><td>写</td></tr>
+            </tbody>
+          </table>
+
+          <h3>方言赛道的「语料核校」是另一种尺度</h3>
+          <p>方言配音擂台没有现场应变分，改用「本地语料核校」。11-05 增设的核校员对 11 条复赛作品逐条核对俗语用法，退回 2 条要求补注。退回事由具体到词：一条把「食风」用成「喝西北风」，核校员指出在潮汕话里该词更多指「白忙一场」；另一条把「落雨」与「落水」混用，前者指下雨，后者在部分乡镇指涨水。</p>
+          <p>这套机制的可比性比现场应变高——核校意见逐词列出，选手可逐条回应。但它也带来新问题：俗语用法存在地域差异，核校员以哪个乡镇为准？11-07 的选手群讨论里，有人提出「同一个词在汕头市区和潮阳用法不同」，目前核校员尚未公开其参照的语料来源。这一项如果补上来源说明，方言赛道的评分透明度会明显高于其他赛道。</p>
+
+          <h3>观众该怎么读一份打分表</h3>
+          <ul>
+            <li>先看分项是否齐全。只写总分的评委，其打分对总分的影响无法被检验，遇到争议时最难回应。</li>
+            <li>再看扣分理由是否指向细则原文。理由超出细则范围的（如「未拍到街道名」），属于评委个人偏好，可以质疑但不一定能改分。</li>
+            <li>最后看同一赛道内分差。8 组选手的「现场应变」分差若超过 4 分，通常意味着分项拆法不一致，而非作品差距真有那么大。</li>
+          </ul>
+          <p>这三条不解决争议，但能让人判断争议属于哪一类：细则模糊、执行不一，还是单纯的偏好差异。前两类可以向评委组要说法，第三类只能接受。</p>
+        </section>
+
+        <!-- 6. 体验指南 -->
+        <section class="sec" id="guide">
+          <div class="sec-head">
+            <div>
+              <h2>从哪条开始看：复赛作品的观看顺序</h2>
+              <p class="sec-sub">按观看目的分三条路径</p>
+            </div>
+          </div>
+          <ol class="steps">
+            <li><b>想快速判断本届水准，先看《凌晨四点的洒水车》</b>8 分 12 秒，环境声剪辑是本届最完整的一条。看完再回看它的第 5 段（约 4:30 处），能理解评委说的「剪辑点落在呼吸上」是什么意思。</li>
+            <li><b>想看结构巧思，看《三号楼道：27 个门牌》</b>可交互图文，27 屏对应 27 户。重点不在门牌本身，而在每屏附的那句住户原话——第 14 页那句「别拍我家猫」是整组的转折点。</li>
+            <li><b>想看传播力从哪来，看《潮汕阿嬷讲台风》</b>3 分 41 秒里 11 个俗语，本地观众能逐条对上。非本地观众建议开字幕，否则会漏掉一半信息。</li>
+            <li><b>判断一条作品值不值得投入时间，看三件事</b>素材时间戳是否可核对、作者是否公开原始素材清单、评论区是否有本地或行业内的人补充细节。三条占两条，通常值得看完。</li>
+            <li><b>同类条目怎么比</b>同为城市观察，《凌晨四点的洒水车》靠声音层次，《换乘 3 次，省下 11 分钟》靠数据表。前者看剪辑，后者看记录方法，评价标准不通用，别用同一把尺子。</li>
+          </ol>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="sec faq" id="faq">
+          <div class="sec-head">
+            <div>
+              <h2>关于本届赛事的常见问题</h2>
+              <p class="sec-sub">按提问频率整理 · 6 问</p>
+            </div>
+          </div>
+          <details>
+            <summary>复赛第二轮的晋级名单在哪里看？</summary>
+            <div class="ans">11-08 17:40 公示的名单覆盖《城市噪声地图》赛道 8 组，附 7 位评委的分项打分表。其他赛道的晋级名单按赛程分两批，第二批预计 11-10 公布。名单页同时给出每组的总分与分项分，可直接对照。</div>
+          </details>
+          <details>
+            <summary>「现场应变」15 分具体考什么？</summary>
+            <div class="ans">命题公布后 90 分钟内补拍 60 秒素材，主题为「你所在街道最容易被忽略的声音」，不得使用既有素材。评分看三件事：是否在时限内完成、60 秒内是否讲清一个观察、是否体现对环境的即时判断。7 位评委的分项拆法目前不统一，详见深度解析里的对照表。</div>
+          </details>
+          <details>
+            <summary>选手申诉需要提交哪些材料？</summary>
+            <div class="ans">复赛结果公布后 24 小时内提交，需附原始工程文件、拍摄时间戳证明（相册截图或 SD 卡文件列表）、以及针对具体扣分项的书面说明。11-07 受理的「南屿汽水」申诉可作为格式参考，其材料包含 SD 卡目录截图、项目创建时间与一段 12 秒屏录。</div>
+          </details>
+          <details>
+            <summary>方言配音赛道的「语料核校」依据什么标准？</summary>
+            <div class="ans">核校员逐词核对俗语用法，退回过「食风」误用为「喝西北风」、「落雨」与「落水」混用两类问题。参照的语料来源尚未公开，这也是 11-07 选手群讨论的焦点——同一词在汕头市区与潮阳用法不同，核校标准需说明以何处为准。</div>
+          </details>
+          <details>
+            <summary>《潮汕阿嬷讲台风》里的 11 个俗语分别是什么？</summary>
+            <div class="ans">作品字幕已逐条标注，包括「风台起，厝边收」「天光雨，暗时晴」等。第 3 分 02 秒出现的「无风无雨不成台」被本地观众指出更常见的说法是「无风不成台」，作者在 11-07 的评论区回应称保留了阿嬷的原话，未作改写。</div>
+          </details>
+          <details>
+            <summary>决赛什么时候，赛制会再改吗？</summary>
+            <div class="ans">决赛定于 11-22，地点与直播安排尚未公布。评委组 11-08 公告称「将在决赛前统一分项模板」，意味着现场应变的 15 分可能改为固定三项各 5 分。若模板落地，本届复赛出现的分项不一致问题在决赛阶段应会减少。</div>
+          </details>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="sec" id="comments">
+          <div class="sec-head">
+            <div>
+              <h2>观众与选手的评论</h2>
+              <p class="sec-sub">16 条 · 含中性评价与吐槽</p>
+            </div>
+          </div>
+          <div class="cmt-list">
+            <div class="cmt"><div class="ch"><span class="av">南</span><span class="nm">南屿汽水</span><span class="ts">11-08</span></div><p>三件套已经发全了，SD 卡目录、项目创建时间、屏录都在。剩下的交给评委组。</p><div class="lk">获赞 <b>312</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">老</span><span class="nm">老周不吃藕</span><span class="ts">11-08</span></div><p>《卖藕的周师傅》那段，42 分钟剪到 7 分 20 秒，剪掉的恰好是我最想看的议价部分。可惜。</p><div class="lk">获赞 <b>188</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">潮</span><span class="nm">潮阳阿七</span><span class="ts">11-07</span></div><p>「无风不成台」才是我们这边常说的，阿嬷那句可能是口误，留着也行，但字幕该标一下。</p><div class="lk">获赞 <b>266</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">路</span><span class="nm">路过看两眼</span><span class="ts">11-07</span></div><p>打分表并排看确实能看出问题，B 评委那个「未拍到街道名」的扣分理由站不住。</p><div class="lk">获赞 <b>143</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">手</span><span class="nm">手工耿的邻居</span><span class="ts">11-07</span></div><p>拆风扇那条我照着做了，41 个零件表里第 42 颗锈螺丝才是灵魂。</p><div class="lk">获赞 <b>97</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">通</span><span class="nm">通勤两小时</span><span class="ts">11-06</span></div><p>换乘那条的结论我实测反了，可能我这边 8 点后反而快。样本还是太少，10 天不够。</p><div class="lk">获赞 <b>121</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">楼</span><span class="nm">住三号楼的对门</span><span class="ts">11-06</span></div><p>门牌拓印那组，第 14 页是我妈。她说不愿出镜是真的，但授权书是她自己签的。</p><div class="lk">获赞 <b>204</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">夜</span><span class="nm">夜班回来的人</span><span class="ts">11-06</span></div><p>色温那条太短了，9 个点位不够，我们这条街至少有 4 种招牌色温混着，走夜路眼睛很累。</p><div class="lk">获赞 <b>76</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">评</span><span class="nm">评委席外的人</span><span class="ts">11-05</span></div><p>现场应变 15 分拆成四种，这届评委组自己都没对齐，选手申诉很正常。</p><div class="lk">获赞 <b>159</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">外</span><span class="nm">外卖盒收藏家</span><span class="ts">11-05</span></div><p>餐盒那条指出 4 种卡扣易断，我手边正好有 3 种，确实一掰就断。改法草图太潦草了。</p><div class="lk">获赞 <b>68</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">笑</span><span class="nm">笑不出来</span><span class="ts">11-05</span></div><p>看完 27 屏门牌，最大的感受是我连自己楼道有几户都不知道。</p><div class="lk">获赞 <b>88</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">第</span><span class="nm">第一轮就被刷</span><span class="ts">11-04</span></div><p>初赛挂了，回来看看晋级作品什么水准。洒水车那条确实服气，第 5 段我反复听了三遍。</p><div class="lk">获赞 <b>112</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">俗</span><span class="nm">俗语考据党</span><span class="ts">11-04</span></div><p>「食风」在潮阳确实偏「白忙一场」，核校员那个退回理由是对的，但该注明参照哪里的语料。</p><div class="lk">获赞 <b>93</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">路</span><span class="nm">路人甲不甲</span><span class="ts">11-03</span></div><p>为什么大家都在讨论打分表，没人聊作品本身。我先说：洒水车 8 分 12 秒，值回票价。</p><div class="lk">获赞 <b>54</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">雨</span><span class="nm">雨天不出门</span><span class="ts">11-03</span></div><p>换乘实测遇雨那 3 天单列了没计入均值，这条回应还算清楚，就是表格字太小。</p><div class="lk">获赞 <b>41</b></div></div>
+            <div class="cmt"><div class="ch"><span class="av">追</span><span class="nm">追更到决赛</span><span class="ts">11-02</span></div><p>决赛前把分项模板统一了再说，不然复赛这种 0.4 分落选的事还得再来一遍。</p><div class="lk">获赞 <b>178</b></div></div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="sec" id="news">
+          <div class="sec-head">
+            <div>
+              <h2>赛事相关资讯</h2>
+              <p class="sec-sub">6 条 · 截至 11-08</p>
+            </div>
+          </div>
+          <div class="news-list">
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11a/600/400" width="600" height="400" loading="lazy" alt="评委打分表并排摆放在桌面上">
+              <div class="nb">
+                <div class="nd">2026-11-08</div>
+                <h3>评委组承诺决赛前统一分项模板</h3>
+                <p>11-08 15:12 公告称将把「现场应变」15 分改为固定三项各 5 分，并同步发布扣分理由填写规范。评委 E 此前只写总分、不写分项的做法将被取消。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11b/600/400" width="600" height="400" loading="lazy" alt="相机SD卡与电脑文件夹列表截图">
+              <div class="nb">
+                <div class="nd">2026-11-08</div>
+                <h3>素材时间戳核查新增两种证明方式</h3>
+                <p>针对手机素材导出后时间戳重置的问题，组委会接受相册截图与 SD 卡文件列表两种补充证明，11-09 起生效，已提交申诉的 3 组选手可补交。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11c/600/400" width="600" height="400" loading="lazy" alt="潮汕老宅天井与晾晒的衣物">
+              <div class="nb">
+                <div class="nd">2026-11-07</div>
+                <h3>《潮汕阿嬷讲台风》播放量达 38.6 万</h3>
+                <p>该条作品 11-07 20:26 突破 38 万播放，收藏 1.2 万。评论区出现 200 余条本地用户补充的 2018 年停电记忆，其中 17 条被作者整理进作品附注。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11d/600/400" width="600" height="400" loading="lazy" alt="居民楼门牌拓印件与授权书扫描件">
+              <div class="nb">
+                <div class="nd">2026-11-07</div>
+                <h3>「三号楼道」公开 27 份住户授权书</h3>
+                <p>小组 11-07 16:48 贴出全部授权书扫描件，其中 3 份为口头同意后补签，签署时间集中在 10-18 至 10-21。第 14 页住户本人已在评论区确认。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11e/600/400" width="600" height="400" loading="lazy" alt="方言俗语核对表与手写批注">
+              <div class="nb">
+                <div class="nd">2026-11-05</div>
+                <h3>方言赛道增设本地语料核校员</h3>
+                <p>11-05 19:02 起，核校员对 11 条复赛作品逐词核对俗语用法，已退回 2 条要求补注。退回事由具体到词，包括「食风」与「落水」两处误用。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news11f/600/400" width="600" height="400" loading="lazy" alt="赛事报名页面与提交作品数量统计">
+              <div class="nb">
+                <div class="nd">2026-11-04</div>
+                <h3>初赛收到 46 组有效投稿，视频占 33 组</h3>
+                <p>11-04 10:40 公布的数据显示，可交互图文 13 组。按赛道看城市噪声地图 9 组最多，公交站台速写 2 组最少，两组赛道合并评审。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="sec" id="reco">
+          <div class="sec-head">
+            <div>
+              <h2>按内容方向找条目</h2>
+              <p class="sec-sub">标签索引 · 点击跳转对应板块</p>
+            </div>
+          </div>
+          <div class="reco">
+            <a href="/#featured">环境声采样 <small>9 组</small></a>
+            <a href="/#featured">门牌拓印 <small>27 屏</small></a>
+            <a href="/#featured">潮汕话俗语 <small>11 条</small></a>
+            <a href="/#featured">旧物拆解清单 <small>41 件</small></a>
+            <a href="/#featured">菜市场价格史 <small>1998 起</small></a>
+            <a href="/#featured">换乘耗时实测 <small>10 天</small></a>
+            <a href="/#featured">外卖餐盒结构 <small>12 种</small></a>
+            <a href="/#featured">夜间色温 <small>9 点位</small></a>
+            <a href="/#deep">评分细则拆解</a>
+            <a href="/#guide">复赛观看顺序</a>
+            <a href="/#ranking">即时榜单</a>
+            <a href="/#postzone">选手申诉材料模板</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：榜单 + 时间线 -->
+        <section class="sec" id="ranking">
+          <div class="sec-head">
+            <div>
+              <h2>复赛第二轮即时榜单</h2>
+              <p class="sec-sub">按总分排序 · 11-08 18:00 数据</p>
+            </div>
+          </div>
+          <ol class="rank">
+            <li><span class="no">1</span><div class="ri"><b>《凌晨四点的洒水车》</b><span>城市噪声地图 · 南屿汽水 · 时长 8′12″</span></div><span class="rv">8.9</span></li>
+            <li><span class="no">2</span><div class="ri"><b>《三号楼道：27 个门牌》</b><span>楼道观察笔记 · 两人小组 · 27 屏交互</span></div><span class="rv">8.6</span></li>
+            <li><span class="no">3</span><div class="ri"><b>《潮汕阿嬷讲台风》</b><span>方言配音擂台 · 3′41″ · 播放 38.6 万</span></div><span class="rv">8.4</span></li>
+            <li><span class="no">4</span><div class="ri"><b>《拆了 6 台旧风扇之后》</b><span>旧物改造实验室 · 41 个零件清单</span></div><span class="rv">8.3</span></li>
+            <li><span class="no">5</span><div class="ri"><b>《卖藕的周师傅讲了 40 分钟》</b><span>菜市场口述史 · 素材 42′ 剪至 7′20″</span></div><span class="rv">8.1</span></li>
+            <li><span class="no">6</span><div class="ri"><b>《换乘 3 次，省下 11 分钟》</b><span>通勤路线测评 · 10 个工作日实测</span></div><span class="rv">7.9</span></li>
+            <li><span class="no">7</span><div class="ri"><b>《把餐盒剪开摊平之后》</b><span>外卖包装再设计 · 12 种样本对照</span></div><span class="rv">7.7</span></li>
+            <li><span class="no">8</span><div class="ri"><b>《一条街的 9 种色温》</b><span>夜间灯光采样 · 2700K—6500K 区间</span></div><span class="rv">7.5</span></li>
+          </ol>
+        </section>
+
+        <section class="sec" id="timeline">
+          <div class="sec-head">
+            <div>
+              <h2>本届赛事关键节点时间线</h2>
+              <p class="sec-sub">9 月报名至 11 月复赛</p>
+            </div>
+          </div>
+          <ul class="tl">
+            <li><span class="td">2026-09-14</span><b>秋季赛开放报名</b><span>十二个赛道同时开放，个人或两人小组均可报名，报名截止 10-12。</span></li>
+            <li><span class="td">2026-10-12</span><b>报名截止，共 61 组登记</b><span>登记后需在 10-26 前提交作品，逾期视为放弃。</span></li>
+            <li><span class="td">2026-10-26</span><b>初赛评审截止，46 组有效投稿</b><span>视频 33 组、可交互图文 13 组，两组赛道因投稿不足合并评审。</span></li>
+            <li><span class="td">2026-11-01</span><b>复赛第一轮</b><span>沿用旧评分权重，创意 40 / 完成度 30 / 表达 30，未设现场应变环节。</span></li>
+            <li><span class="td">2026-11-05</span><b>方言赛道增设语料核校员</b><span>11 条复赛作品逐词核对，退回 2 条要求补注俗语用法。</span></li>
+            <li><span class="td">2026-11-06</span><b>复赛第二轮细则公布</b><span>新增现场应变 15 分，90 分钟内补拍 60 秒；评委席扩至 7 人。</span></li>
+            <li><span class="td">2026-11-08</span><b>第二轮晋级名单公示</b><span>城市噪声地图 8 组晋级，7 份打分表同步公开，分项拆法不一引发申诉。</span></li>
+            <li><span class="td">2026-11-22</span><b>决赛（待定）</b><span>地点与直播安排未公布，评委组称决赛前统一分项模板。</span></li>
+          </ul>
+        </section>
+
+        <!-- 投稿互动 -->
+        <section class="sec post-zone" id="postzone">
+          <div>
+            <h2>投稿与现场素材征集</h2>
+            <p>复赛第二轮起开放「街道声音」素材征集：任何人在 11-10 前上传一段 30 秒以上的街道环境声，附地点与时间，即可进入素材池。被选手选用的素材会在作品片尾署名，并计入下届赛事的推荐资格。</p>
+            <div class="pz-actions">
+              <button class="p1" type="button" onclick="window.location.href='/#postzone'">上传街道声音</button>
+              <button class="p2" type="button" onclick="window.location.href='/#faq'">查看申诉材料要求</button>
+            </div>
+          </div>
+          <div class="pz-stat">
+            <div><span>已收素材</span><b>318</b></div>
+            <div><span>被选用</span><b>27</b></div>
+            <div><span>截止日期</span><b style="font-size:14px">11-10</b></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 右辅助栏 -->
+      <aside class="side-col" aria-label="辅助信息">
+        <div class="side-card">
+          <h3>站内热搜</h3>
+          <ol class="side-hot">
+            <li><a href="/#featured">凌晨四点的洒水车<span>城市噪声地图 · 8.9 分</span></a></li>
+            <li><a href="/#deep">现场应变 15 分怎么拆<span>7 份打分表对照</span></a></li>
+            <li><a href="/#featured">潮汕阿嬷讲台风<span>播放 38.6 万</span></a></li>
+            <li><a href="/#featured">三号楼道 27 个门牌<span>授权书已公开</span></a></li>
+            <li><a href="/#feed">南屿汽水申诉材料<span>11-08 已受理</span></a></li>
+          </ol>
+        </div>
+        <div class="side-card">
+          <h3>评委原话</h3>
+          <div class="side-quote">
+            「第 5 段的剪辑点落在呼吸上，洒水车鸣笛和开锅声叠在一起，两秒之内完成了一次空间切换。」
+            <b>—— 视听技术评审 A，11-08 打分表附注</b>
+          </div>
+        </div>
+        <div class="side-card">
+          <h3>赛道快捷入口</h3>
+          <div class="side-links">
+            <a href="/#featured">城市噪声地图</a>
+            <a href="/#featured">旧物改造</a>
+            <a href="/#featured">方言配音</a>
+            <a href="/#featured">短纪录片</a>
+            <a href="/#featured">菜市场口述</a>
+            <a href="/#featured">楼道观察</a>
+            <a href="/#featured">通勤测评</a>
+            <a href="/#featured">夜间灯光</a>
+          </div>
+        </div>
+        <div class="side-card">
+          <h3>近三日节点</h3>
+          <ul class="side-timeline">
+            <li><b>11-06</b>复赛第二轮细则公布，新增现场应变分</li>
+            <li><b>11-07</b>三号楼道公开 27 份授权书</li>
+            <li><b>11-08</b>晋级名单公示，7 份打分表同步公开</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#ff5a5f"/><circle cx="22" cy="26" r="7.5" fill="#161a2b"/><circle cx="44" cy="26" r="7.5" fill="#161a2b"/><path d="M15 44c6 9 28 9 34 0" stroke="#ffc94d" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+          wiki45九一吃瓜在线大赛
+        </div>
+        <p>覆盖 2026 秋季赛全部 46 组参赛作品，收录赛道回放、晋级名单、7 位评委打分表、选手申诉材料与赛后发声。比赛日当晚更新条目卡，次日补入打分表与评论摘录。</p>
+        <p style="font-size:12.5px;color:#7d7890">页面内容为示例条目，选手名、作品名与分数按赛事规则生成，用于演示聚合结构。</p>
+      </div>
+      <div>
+        <h4>赛事栏目</h4>
+        <ul>
+          <li><a href="/#overview">赛事概览</a></li>
+          <li><a href="/#featured">精选条目</a></li>
+          <li><a href="/#feed">最新动态</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#ranking">即时榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>内容类型</h4>
+        <ul>
+          <li><a href="/#cats">赛道分类</a></li>
+          <li><a href="/#guide">观看指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">观众评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>互动与投稿</h4>
+        <ul>
+          <li><a href="/#postzone">街道声音征集</a></li>
+          <li><a href="/#postzone">选手申诉模板</a></li>
+          <li><a href="/#timeline">赛事时间线</a></li>
+          <li><a href="/#reco">标签索引</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 wiki45九一吃瓜在线大赛 · 赛事内容聚合示例</span>
+      <span>最近可核对更新：11-08 17:40 晋级名单公示 · 11-08 15:12 评分细则修订</span>
+    </div>
+  </div>
+</footer>
+
+<button class="backtop" id="backtop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 移动抽屉
+  var burger=document.getElementById('burger'),
+      drawer=document.getElementById('drawer'),
+      mask=document.getElementById('drawerMask'),
+      closeBtn=document.getElementById('drawerClose');
+
+  function openDrawer(){
+    drawer.classList.add('show');mask.classList.add('show');
+    drawer.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true');
+    closeBtn.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('show');mask.classList.remove('show');
+    drawer.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false');
+  }
+  burger.addEventListener('click',openDrawer);
+  closeBtn.addEventListener('click',closeDrawer);
+  mask.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeDrawer);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&drawer.classList.contains('show'))closeDrawer();});
+
+  // 公告条“更多”
+  var annMore=document.getElementById('annMore');
+  if(annMore){
+    annMore.addEventListener('click',function(){window.location.href='/#feed';});
+  }
+
+  // 本地搜索筛选
+  var input=document.getElementById('searchInput'),
+      btn=document.getElementById('searchBtn'),
+      grid=document.getElementById('featuredGrid'),
+      noRes=document.getElementById('noRes'),
+      cards=grid?Array.prototype.slice.call(grid.querySelectorAll('.card')):[];
+  function doSearch(){
+    var q=(input.value||'').trim().toLowerCase();
+    if(!q){cards.forEach(function(c){c.classList.remove('hidden');});noRes.classList.remove('show');return;}
+    var hit=0;
+    cards.forEach(function(c){
+      var txt=c.textContent.toLowerCase();
+      if(txt.indexOf(q)>-1){c.classList.remove('hidden');hit++;}
+      else{c.classList.add('hidden');}
+    });
+    noRes.classList.toggle('show',hit===0);
+  }
+  if(btn){btn.addEventListener('click',doSearch);}
+  if(input){input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});}
+
+  // 回顶
+  var bt=document.getElementById('backtop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>window.innerHeight*0.9){bt.classList.add('show');}else{bt.classList.remove('show');}
+  },{passive:true});
+  bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // 侧栏/频道高亮当前板块
+  var secs=Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('.head-nav a, .chan-nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var id=en.target.id;
+          navLinks.forEach(function(l){
+            var href=l.getAttribute('href')||'';
+            if(href==='/#'+id){l.classList.add('on');}
+            else if(href.indexOf('/#')===0){l.classList.remove('on');}
+          });
+        }
+      });
+    },{rootMargin:'-120px 0px -60% 0px',threshold:0});
+    secs.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"wiki45九一吃瓜在线大赛",
+  "description":"聚合九一吃瓜在线大赛的赛道回放、晋级名单、评委打分、争议裁定与选手赛后发声。",
+  "inLanguage":"zh-CN",
+  "about":{
+    "@type":"Event",
+    "name":"九一吃瓜在线大赛 2026 秋季赛",
+    "startDate":"2026-09-14",
+    "endDate":"2026-11-22",
+    "eventStatus":"https://schema.org/EventScheduled",
+    "description":"以生活观察与现场制作为核心的线上创作赛事，设十二个赛道。"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"复赛第二轮的晋级名单在哪里看？","acceptedAnswer":{"@type":"Answer","text":"11-08 17:40 公示的名单覆盖《城市噪声地图》赛道 8 组，附 7 位评委的分项打分表。其他赛道的晋级名单按赛程分两批，第二批预计 11-10 公布。"}},
+    {"@type":"Question","name":"「现场应变」15 分具体考什么？","acceptedAnswer":{"@type":"Answer","text":"命题公布后 90 分钟内补拍 60 秒素材，主题为「你所在街道最容易被忽略的声音」，不得使用既有素材。评分看是否在时限内完成、60 秒内是否讲清一个观察、是否体现对环境的即时判断。"}},
+    {"@type":"Question","name":"选手申诉需要提交哪些材料？","acceptedAnswer":{"@type":"Answer","text":"复赛结果公布后 24 小时内提交，需附原始工程文件、拍摄时间戳证明（相册截图或 SD 卡文件列表）、以及针对具体扣分项的书面说明。"}},
+    {"@type":"Question","name":"方言配音赛道的「语料核校」依据什么标准？","acceptedAnswer":{"@type":"Answer","text":"核校员逐词核对俗语用法，退回过「食风」误用为「喝西北风」、「落雨」与「落水」混用两类问题。参照的语料来源尚未公开。"}},
+    {"@type":"Question","name":"《潮汕阿嬷讲台风》里的 11 个俗语分别是什么？","acceptedAnswer":{"@type":"Answer","text":"作品字幕已逐条标注，包括「风台起，厝边收」「天光雨，暗时晴」等。第 3 分 02 秒出现的「无风无雨不成台」被本地观众指出更常见的说法是「无风不成台」。"}},
+    {"@type":"Question","name":"决赛什么时候，赛制会再改吗？","acceptedAnswer":{"@type":"Answer","text":"决赛定于 11-22，地点与直播安排尚未公布。评委组 11-08 公告称将在决赛前统一分项模板，现场应变的 15 分可能改为固定三项各 5 分。"}}
+  ]
+}
+</script>
+
+</body>
+                  </html>
